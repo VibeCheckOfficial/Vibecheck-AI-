@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="images/banner.svg" alt="VibeCheck - Stop AI Hallucinations in Code" width="800" />
+  <img src="images/logo.png" alt="VibeCheck - Stop AI Hallucinations in Code" width="120" />
 </p>
 
 <h1 align="center">VibeCheck for VS Code</h1>
@@ -105,6 +105,8 @@ Search **"VibeCheck"** in VS Code Extensions, or click Install above.
 ```bash
 npm install -g vibecheck-ai
 ```
+
+> **Free Tier:** 10 scans/month included. [Upgrade to Pro](https://vibecheckai.dev/pricing) for unlimited scans.
 
 ### 3. Initialize Your Project
 

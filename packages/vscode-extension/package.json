@@ -1,18 +1,18 @@
 {
   "name": "vibecheck-AI",
-  "displayName": "Vibecheck — Agent Firewall (Stop Context Drift)",
-  "description": "Stop AI context drift before it ships. Blocks ghost routes, env vars, and auth mismatches unless proven against repo truth. Proof-carry-change for Cursor, Copilot, Claude, and Windsurf.",
-  "version": "5.0.0",
+  "displayName": "VibeCheck — AI Code Verification",
+  "description": "Your AI wrote the code. VibeCheck makes sure it actually works. Catches fake features, hallucinated APIs, and silent failures before they ship. Works with Cursor, Copilot, Claude, and Windsurf.",
+  "version": "5.1.0",
   "publisher": "Vibecheck-AI",
-  "icon": "images/vibe_logo.ico",
-  "license": "SEE LICENSE IN LICENSE",
-  "homepage": "https://vibecheck.ai",
+  "icon": "images/logo.png",
+  "license": "BSL-1.1",
+  "homepage": "https://vibecheckai.dev",
   "repository": {
     "type": "git",
-    "url": "https://github.com/vibecheck-oss/vibecheck"
+    "url": "https://github.com/VibeCheckOfficial/Vibecheck-AI-"
   },
   "bugs": {
-    "url": "https://github.com/vibecheck-oss/vibecheck/issues"
+    "url": "https://github.com/VibeCheckOfficial/Vibecheck-AI-/issues"
   },
   "engines": {
     "vscode": "^1.85.0",
