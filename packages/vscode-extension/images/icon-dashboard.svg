@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+  <!-- Dashboard panels -->
+  <rect x="3" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2" fill="none"/>
+  <rect x="14" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2" fill="none"/>
+  <rect x="3" y="14" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2" fill="none"/>
+  <rect x="14" y="14" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2" fill="none"/>
+  
+  <!-- Inner content hints -->
+  <path d="M5 6h3M5 8h2" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.5"/>
+  <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" opacity="0.5"/>
+  <path d="M5 17l1 1 2-2" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
+</svg>

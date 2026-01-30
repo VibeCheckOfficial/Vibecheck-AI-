@@ -1,0 +1,70 @@
+# Source files (compiled to dist/)
+src/**
+!src/webview/**/*.html
+
+# Development files
+.vscode/**
+.vscode-test/**
+node_modules/**
+*.map
+
+# Build config
+webpack.config.js
+tsconfig.json
+.eslintrc.js
+.eslintrc.json
+.prettierrc
+vitest.config.ts
+
+# Git
+.git/**
+.gitignore
+.github/**
+
+# Documentation source
+docs/**
+*.md
+!README.md
+!CHANGELOG.md
+
+# Test files
+**/*.test.ts
+**/*.spec.ts
+test/**
+coverage/**
+.nyc_output/**
+
+# Development assets
+**/*.psd
+**/*.sketch
+**/*.fig
+
+# Misc
+.DS_Store
+Thumbs.db
+*.log
+*.vsix
+.env
+.env.*
+
+# Package manager
+yarn.lock
+package-lock.json
+pnpm-lock.yaml
+
+# Workspace packages (not part of VS Code extension)
+apps/**
+packages/**
+prisma/**
+shared/**
+.vibecheck/**
+
+# Workspace config
+pnpm-workspace.yaml
+turbo.json
+tsconfig.base.json
+esbuild.js
+MIGRATION_PLAN.md
+
+# Agent transcripts
+agent-transcripts/**

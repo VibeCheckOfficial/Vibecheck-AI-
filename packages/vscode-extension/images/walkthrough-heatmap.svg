@@ -1,0 +1,232 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="bgGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f0f23"/>
+      <stop offset="100%" style="stop-color:#1a1a3e"/>
+    </linearGradient>
+    <linearGradient id="criticalGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:rgba(239,68,68,0.3)"/>
+      <stop offset="100%" style="stop-color:rgba(239,68,68,0.1)"/>
+    </linearGradient>
+    <linearGradient id="highGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:rgba(249,115,22,0.25)"/>
+      <stop offset="100%" style="stop-color:rgba(249,115,22,0.08)"/>
+    </linearGradient>
+    <linearGradient id="medGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:rgba(234,179,8,0.2)"/>
+      <stop offset="100%" style="stop-color:rgba(234,179,8,0.05)"/>
+    </linearGradient>
+    <filter id="glowRed">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="500" fill="url(#bgGrad2)"/>
+  
+  <!-- Grid pattern -->
+  <pattern id="grid2" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  </pattern>
+  <rect width="800" height="500" fill="url(#grid2)"/>
+  
+  <!-- Title -->
+  <text x="400" y="45" text-anchor="middle" fill="white" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="600">
+    Security Heatmap
+  </text>
+  <text x="400" y="70" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-family="system-ui, sans-serif" font-size="14">
+    Visualize risk density across your entire codebase
+  </text>
+  
+  <!-- Code editor with heatmap -->
+  <rect x="50" y="100" width="420" height="370" rx="8" fill="#1e1e2e" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  
+  <!-- Editor header -->
+  <rect x="50" y="100" width="420" height="30" rx="8" fill="#2d2d3f"/>
+  <rect x="50" y="122" width="420" height="8" fill="#2d2d3f"/>
+  <circle cx="68" cy="115" r="5" fill="#ff5f57"/>
+  <circle cx="88" cy="115" r="5" fill="#ffbd2e"/>
+  <circle cx="108" cy="115" r="5" fill="#28ca42"/>
+  <text x="260" y="119" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-family="monospace" font-size="11">api/routes/admin.ts</text>
+  
+  <!-- Minimap gutter -->
+  <rect x="440" y="130" width="25" height="340" fill="#252535"/>
+  
+  <!-- Minimap risk indicators -->
+  <rect x="442" y="145" width="21" height="8" fill="#ef4444" opacity="0.8"/>
+  <rect x="442" y="175" width="21" height="12" fill="#f97316" opacity="0.7"/>
+  <rect x="442" y="220" width="21" height="6" fill="#eab308" opacity="0.6"/>
+  <rect x="442" y="280" width="21" height="15" fill="#ef4444" opacity="0.9"/>
+  <rect x="442" y="340" width="21" height="8" fill="#f97316" opacity="0.7"/>
+  <rect x="442" y="390" width="21" height="10" fill="#ef4444" opacity="0.8"/>
+  
+  <!-- Code with heatmap highlighting -->
+  <g font-family="'SF Mono', 'Fira Code', monospace" font-size="11">
+    <!-- Critical risk line - red glow -->
+    <rect x="55" y="142" width="380" height="20" fill="url(#criticalGrad)" rx="2"/>
+    <rect x="52" y="142" width="3" height="20" fill="#ef4444"/>
+    
+    <text x="62" y="156" fill="rgba(255,255,255,0.3)">1</text>
+    <text x="82" y="156" fill="#c678dd">export</text>
+    <text x="122" y="156" fill="#c678dd">const</text>
+    <text x="158" y="156" fill="#61afef">deleteUser</text>
+    <text x="230" y="156" fill="white">= (</text>
+    <text x="250" y="156" fill="#e5c07b">req</text>
+    <text x="272" y="156" fill="white">,</text>
+    <text x="282" y="156" fill="#e5c07b">res</text>
+    <text x="300" y="156" fill="white">) => {</text>
+    
+    <!-- High risk lines -->
+    <rect x="55" y="162" width="380" height="40" fill="url(#highGrad)" rx="2"/>
+    <rect x="52" y="162" width="3" height="40" fill="#f97316"/>
+    
+    <text x="62" y="176" fill="rgba(255,255,255,0.3)">2</text>
+    <text x="90" y="176" fill="#c678dd">const</text>
+    <text x="128" y="176" fill="#e5c07b">id</text>
+    <text x="142" y="176" fill="white">=</text>
+    <text x="152" y="176" fill="#e5c07b">req</text>
+    <text x="172" y="176" fill="white">.</text>
+    <text x="178" y="176" fill="#e06c75">params</text>
+    <text x="218" y="176" fill="white">.</text>
+    <text x="224" y="176" fill="#e06c75">id</text>
+    <text x="235" y="176" fill="white">;</text>
+    
+    <text x="62" y="196" fill="rgba(255,255,255,0.3)">3</text>
+    <text x="90" y="196" fill="#61afef">db.query</text>
+    <text x="150" y="196" fill="white">(</text>
+    <text x="157" y="196" fill="#98c379">`DELETE FROM users WHERE id=${</text>
+    <text x="385" y="196" fill="#e5c07b">id</text>
+    <text x="400" y="196" fill="#98c379">}`</text>
+    <text x="415" y="196" fill="white">)</text>
+    
+    <!-- Medium risk -->
+    <rect x="55" y="202" width="380" height="20" fill="url(#medGrad)" rx="2"/>
+    <rect x="52" y="202" width="3" height="20" fill="#eab308"/>
+    
+    <text x="62" y="216" fill="rgba(255,255,255,0.3)">4</text>
+    <text x="90" y="216" fill="white">.</text>
+    <text x="95" y="216" fill="#61afef">then</text>
+    <text x="120" y="216" fill="white">(() =></text>
+    <text x="165" y="216" fill="#e5c07b">res</text>
+    <text x="183" y="216" fill="white">.</text>
+    <text x="190" y="216" fill="#61afef">send</text>
+    <text x="218" y="216" fill="white">(</text>
+    <text x="225" y="216" fill="#98c379">'ok'</text>
+    <text x="245" y="216" fill="white">))</text>
+    
+    <!-- Clean lines -->
+    <text x="62" y="236" fill="rgba(255,255,255,0.3)">5</text>
+    <text x="82" y="236" fill="white">}</text>
+    
+    <text x="62" y="256" fill="rgba(255,255,255,0.3)">6</text>
+    
+    <!-- Critical block -->
+    <rect x="55" y="262" width="380" height="60" fill="url(#criticalGrad)" rx="2"/>
+    <rect x="52" y="262" width="3" height="60" fill="#ef4444"/>
+    
+    <text x="62" y="276" fill="rgba(255,255,255,0.3)">7</text>
+    <text x="82" y="276" fill="#c678dd">export</text>
+    <text x="122" y="276" fill="#c678dd">const</text>
+    <text x="158" y="276" fill="#61afef">runCommand</text>
+    <text x="235" y="276" fill="white">= (</text>
+    <text x="255" y="276" fill="#e5c07b">cmd</text>
+    <text x="280" y="276" fill="white">) => {</text>
+    
+    <text x="62" y="296" fill="rgba(255,255,255,0.3)">8</text>
+    <text x="90" y="296" fill="#c678dd">return</text>
+    <text x="135" y="296" fill="#61afef">exec</text>
+    <text x="162" y="296" fill="white">(</text>
+    <text x="169" y="296" fill="#e5c07b">cmd</text>
+    <text x="192" y="296" fill="white">);</text>
+    <text x="210" y="296" fill="#5c6370">// RCE vulnerability!</text>
+    
+    <text x="62" y="316" fill="rgba(255,255,255,0.3)">9</text>
+    <text x="82" y="316" fill="white">}</text>
+    
+    <!-- More lines -->
+    <text x="58" y="336" fill="rgba(255,255,255,0.3)">10</text>
+    
+    <rect x="55" y="342" width="380" height="20" fill="url(#highGrad)" rx="2"/>
+    <rect x="52" y="342" width="3" height="20" fill="#f97316"/>
+    
+    <text x="58" y="356" fill="rgba(255,255,255,0.3)">11</text>
+    <text x="82" y="356" fill="#c678dd">const</text>
+    <text x="118" y="356" fill="#e5c07b">secret</text>
+    <text x="158" y="356" fill="white">=</text>
+    <text x="168" y="356" fill="#98c379">"sk_live_abc123..."</text>
+    <text x="295" y="356" fill="#5c6370">// Hardcoded</text>
+    
+    <text x="58" y="376" fill="rgba(255,255,255,0.3)">12</text>
+    
+    <rect x="55" y="382" width="380" height="20" fill="url(#criticalGrad)" rx="2"/>
+    <rect x="52" y="382" width="3" height="20" fill="#ef4444"/>
+    
+    <text x="58" y="396" fill="rgba(255,255,255,0.3)">13</text>
+    <text x="82" y="396" fill="#c678dd">eval</text>
+    <text x="108" y="396" fill="white">(</text>
+    <text x="115" y="396" fill="#e5c07b">userInput</text>
+    <text x="180" y="396" fill="white">);</text>
+    <text x="200" y="396" fill="#5c6370">// Code injection</text>
+  </g>
+  
+  <!-- Risk panel -->
+  <g transform="translate(500, 100)">
+    <rect x="0" y="0" width="260" height="370" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+    
+    <text x="130" y="30" text-anchor="middle" fill="white" font-family="system-ui, sans-serif" font-size="14" font-weight="600">Risk Analysis</text>
+    
+    <!-- Risk score circle -->
+    <g transform="translate(130, 100)">
+      <circle cx="0" cy="0" r="50" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="8"/>
+      <circle cx="0" cy="0" r="50" fill="none" stroke="#ef4444" stroke-width="8" stroke-dasharray="235 80" transform="rotate(-90)" filter="url(#glowRed)"/>
+      <text x="0" y="8" text-anchor="middle" fill="#ef4444" font-family="system-ui, sans-serif" font-size="32" font-weight="700">23</text>
+      <text x="0" y="25" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-family="system-ui, sans-serif" font-size="10">/100</text>
+    </g>
+    
+    <text x="130" y="175" text-anchor="middle" fill="#fca5a5" font-family="system-ui, sans-serif" font-size="12" font-weight="500">CRITICAL RISK</text>
+    
+    <!-- Breakdown -->
+    <g transform="translate(20, 200)">
+      <rect x="0" y="0" width="220" height="1" fill="rgba(255,255,255,0.1)"/>
+      
+      <g transform="translate(0, 20)">
+        <circle cx="8" cy="0" r="6" fill="#ef4444"/>
+        <text x="22" y="4" fill="rgba(255,255,255,0.9)" font-family="system-ui, sans-serif" font-size="12">Critical</text>
+        <text x="200" y="4" text-anchor="end" fill="#ef4444" font-family="system-ui, sans-serif" font-size="12" font-weight="600">4</text>
+      </g>
+      
+      <g transform="translate(0, 50)">
+        <circle cx="8" cy="0" r="6" fill="#f97316"/>
+        <text x="22" y="4" fill="rgba(255,255,255,0.9)" font-family="system-ui, sans-serif" font-size="12">High</text>
+        <text x="200" y="4" text-anchor="end" fill="#f97316" font-family="system-ui, sans-serif" font-size="12" font-weight="600">3</text>
+      </g>
+      
+      <g transform="translate(0, 80)">
+        <circle cx="8" cy="0" r="6" fill="#eab308"/>
+        <text x="22" y="4" fill="rgba(255,255,255,0.9)" font-family="system-ui, sans-serif" font-size="12">Medium</text>
+        <text x="200" y="4" text-anchor="end" fill="#eab308" font-family="system-ui, sans-serif" font-size="12" font-weight="600">2</text>
+      </g>
+      
+      <g transform="translate(0, 110)">
+        <circle cx="8" cy="0" r="6" fill="#22c55e"/>
+        <text x="22" y="4" fill="rgba(255,255,255,0.9)" font-family="system-ui, sans-serif" font-size="12">Low</text>
+        <text x="200" y="4" text-anchor="end" fill="#22c55e" font-family="system-ui, sans-serif" font-size="12" font-weight="600">5</text>
+      </g>
+    </g>
+    
+    <!-- Hotspots -->
+    <text x="20" y="340" fill="rgba(255,255,255,0.5)" font-family="system-ui, sans-serif" font-size="10">TOP HOTSPOTS</text>
+    <text x="20" y="358" fill="rgba(255,255,255,0.8)" font-family="monospace" font-size="10">• runCommand() - RCE</text>
+    <text x="20" y="373" fill="rgba(255,255,255,0.8)" font-family="monospace" font-size="10">• deleteUser() - SQLi</text>
+  </g>
+  
+  <!-- Keyboard shortcut hint -->
+  <g transform="translate(250, 480)">
+    <rect x="0" y="0" width="300" height="24" rx="12" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)"/>
+    <text x="150" y="16" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-family="system-ui, sans-serif" font-size="11">Press ⌘⇧H to toggle Security Heatmap</text>
+  </g>
+</svg>

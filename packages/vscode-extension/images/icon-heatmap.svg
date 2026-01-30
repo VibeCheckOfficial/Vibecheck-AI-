@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+  <!-- Grid cells with varying opacity (heatmap effect) -->
+  <rect x="3" y="3" width="5" height="5" rx="1" fill="currentColor" opacity="0.9"/>
+  <rect x="9.5" y="3" width="5" height="5" rx="1" fill="currentColor" opacity="0.5"/>
+  <rect x="16" y="3" width="5" height="5" rx="1" fill="currentColor" opacity="0.3"/>
+  
+  <rect x="3" y="9.5" width="5" height="5" rx="1" fill="currentColor" opacity="0.6"/>
+  <rect x="9.5" y="9.5" width="5" height="5" rx="1" fill="currentColor" opacity="0.8"/>
+  <rect x="16" y="9.5" width="5" height="5" rx="1" fill="currentColor" opacity="0.4"/>
+  
+  <rect x="3" y="16" width="5" height="5" rx="1" fill="currentColor" opacity="0.2"/>
+  <rect x="9.5" y="16" width="5" height="5" rx="1" fill="currentColor" opacity="0.7"/>
+  <rect x="16" y="16" width="5" height="5" rx="1" fill="currentColor" opacity="1"/>
+</svg>

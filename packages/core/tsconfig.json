@@ -1,0 +1,13 @@
+{
+  "extends": "@repo/typescript-config/node.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "rootDir": "src",
+    "noUncheckedIndexedAccess": false,
+    "noImplicitAny": false,
+    "skipLibCheck": true,
+    "strict": false
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules", "dist", "src/**/__tests__/**"]
+}

@@ -1,0 +1,70 @@
+{
+  "name": "@vibecheckai/mcp-server",
+  "version": "1.0.1",
+  "description": "VibeCheck MCP Server - Model Context Protocol server for hallucination prevention",
+  "type": "module",
+  "publishConfig": {
+    "access": "public"
+  },
+  "bin": {
+    "vibecheck-mcp": "dist/index.js"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "vibecheck",
+    "mcp",
+    "model-context-protocol",
+    "ai",
+    "hallucination",
+    "cursor",
+    "claude",
+    "llm"
+  ],
+  "author": "VibeCheck Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vibecheckai/vibecheck.git"
+  },
+  "homepage": "https://vibecheckai.dev",
+  "bugs": {
+    "url": "https://github.com/vibecheckai/vibecheck/issues"
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsx watch src/index.ts",
+    "start": "node dist/index.js",
+    "check-types": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "prepublishOnly": "pnpm run build"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.22.0",
+    "glob": "^10.3.0",
+    "ws": "^8.16.0",
+    "zod": "^3.25.0"
+  },
+  "devDependencies": {
+    "@repo/shared-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "@vibecheck/core": "workspace:*",
+    "@types/node": "^20.10.0",
+    "@types/ws": "^8.5.10",
+    "tsup": "^8.0.0",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.0",
+    "vitest": "^1.2.0"
+  }
+}

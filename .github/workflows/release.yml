@@ -1,0 +1,114 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  release:
+    name: Create GitHub Release
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 9
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build all packages
+        run: pnpm build
+
+      - name: Run tests
+        run: pnpm test
+
+      - name: Get version from tag
+        id: version
+        run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
+
+      - name: Generate release notes
+        id: release_notes
+        run: |
+          # Extract changelog for this version
+          VERSION="${{ steps.version.outputs.VERSION }}"
+          
+          # Try to extract from CHANGELOG.md if it exists
+          if [ -f CHANGELOG.md ]; then
+            # Extract section for this version
+            NOTES=$(awk "/^## \[?${VERSION}\]?/,/^## \[?[0-9]/" CHANGELOG.md | head -n -1)
+            if [ -n "$NOTES" ]; then
+              echo "NOTES<<EOF" >> $GITHUB_OUTPUT
+              echo "$NOTES" >> $GITHUB_OUTPUT
+              echo "EOF" >> $GITHUB_OUTPUT
+            else
+              echo "NOTES=Release v${VERSION}" >> $GITHUB_OUTPUT
+            fi
+          else
+            echo "NOTES=Release v${VERSION}" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          name: VibeCheck v${{ steps.version.outputs.VERSION }}
+          body: |
+            ## VibeCheck v${{ steps.version.outputs.VERSION }}
+            
+            ${{ steps.release_notes.outputs.NOTES }}
+            
+            ### Installation
+            
+            ```bash
+            # Install CLI globally
+            npm install -g @vibecheck/cli
+            
+            # Or use npx
+            npx @vibecheck/cli init
+            ```
+            
+            ### Packages
+            
+            | Package | Version |
+            |---------|---------|
+            | @vibecheck/cli | v${{ steps.version.outputs.VERSION }} |
+            | @vibecheck/core | v${{ steps.version.outputs.VERSION }} |
+            | @vibecheck/mcp-server | v${{ steps.version.outputs.VERSION }} |
+            
+            ### Links
+            
+            - [Documentation](https://vibecheck.dev/docs)
+            - [Getting Started](https://vibecheck.dev/docs/quickstart)
+            - [Changelog](https://github.com/vibecheck/vibecheck/blob/main/CHANGELOG.md)
+          draft: false
+          prerelease: ${{ contains(steps.version.outputs.VERSION, '-') }}
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Post release summary
+        run: |
+          echo "## Release Created" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Version:** v${{ steps.version.outputs.VERSION }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Next Steps" >> $GITHUB_STEP_SUMMARY
+          echo "1. The publish workflow will automatically publish to npm" >> $GITHUB_STEP_SUMMARY
+          echo "2. Update documentation if needed" >> $GITHUB_STEP_SUMMARY
+          echo "3. Announce the release" >> $GITHUB_STEP_SUMMARY

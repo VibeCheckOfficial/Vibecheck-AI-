@@ -1,0 +1,204 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="bgGrad4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f0f23"/>
+      <stop offset="100%" style="stop-color:#1a1a3e"/>
+    </linearGradient>
+    <linearGradient id="scanGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#22c55e"/>
+      <stop offset="100%" style="stop-color:#16a34a"/>
+    </linearGradient>
+    <linearGradient id="scanLine" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:rgba(34,197,94,0)"/>
+      <stop offset="50%" style="stop-color:rgba(34,197,94,0.8)"/>
+      <stop offset="100%" style="stop-color:rgba(34,197,94,0)"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="500" fill="url(#bgGrad4)"/>
+  
+  <!-- Grid pattern -->
+  <pattern id="grid4" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  </pattern>
+  <rect width="800" height="500" fill="url(#grid4)"/>
+  
+  <!-- Title -->
+  <text x="400" y="45" text-anchor="middle" fill="white" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="600">
+    One-Click Security Scanning
+  </text>
+  <text x="400" y="70" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-family="system-ui, sans-serif" font-size="14">
+    Scan your code instantly with ⌘⇧V or on every save
+  </text>
+  
+  <!-- Code editor with scanning animation -->
+  <rect x="50" y="100" width="400" height="300" rx="8" fill="#1e1e2e" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  
+  <!-- Editor header -->
+  <rect x="50" y="100" width="400" height="30" rx="8" fill="#2d2d3f"/>
+  <rect x="50" y="122" width="400" height="8" fill="#2d2d3f"/>
+  <circle cx="68" cy="115" r="5" fill="#ff5f57"/>
+  <circle cx="88" cy="115" r="5" fill="#ffbd2e"/>
+  <circle cx="108" cy="115" r="5" fill="#28ca42"/>
+  <text x="250" y="119" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-family="monospace" font-size="11">user.controller.ts</text>
+  
+  <!-- Scanning animation line -->
+  <rect x="55" y="135" width="390" height="4" fill="url(#scanLine)">
+    <animate attributeName="y" values="135;390;135" dur="3s" repeatCount="indefinite"/>
+  </rect>
+  
+  <!-- Code lines -->
+  <g font-family="'SF Mono', 'Fira Code', monospace" font-size="11">
+    <text x="62" y="155" fill="rgba(255,255,255,0.3)">1</text>
+    <text x="82" y="155" fill="#c678dd">import</text>
+    <text x="120" y="155" fill="white">{</text>
+    <text x="130" y="155" fill="#e5c07b">Controller</text>
+    <text x="195" y="155" fill="white">,</text>
+    <text x="205" y="155" fill="#e5c07b">Get</text>
+    <text x="225" y="155" fill="white">,</text>
+    <text x="235" y="155" fill="#e5c07b">Post</text>
+    <text x="260" y="155" fill="white">}</text>
+    <text x="270" y="155" fill="#c678dd">from</text>
+    <text x="300" y="155" fill="#98c379">'@nestjs/common'</text>
+    
+    <text x="62" y="175" fill="rgba(255,255,255,0.3)">2</text>
+    
+    <text x="62" y="195" fill="rgba(255,255,255,0.3)">3</text>
+    <text x="82" y="195" fill="#e5c07b">@Controller</text>
+    <text x="152" y="195" fill="white">(</text>
+    <text x="159" y="195" fill="#98c379">'users'</text>
+    <text x="200" y="195" fill="white">)</text>
+    
+    <text x="62" y="215" fill="rgba(255,255,255,0.3)">4</text>
+    <text x="82" y="215" fill="#c678dd">export class</text>
+    <text x="155" y="215" fill="#e5c07b">UserController</text>
+    <text x="250" y="215" fill="white">{</text>
+    
+    <!-- Issue detected - highlighted -->
+    <rect x="78" y="222" width="367" height="18" fill="rgba(239,68,68,0.15)" rx="2"/>
+    <text x="62" y="235" fill="rgba(255,255,255,0.3)">5</text>
+    <text x="90" y="235" fill="#e5c07b">@Get</text>
+    <text x="117" y="235" fill="white">(</text>
+    <text x="124" y="235" fill="#98c379">':id'</text>
+    <text x="150" y="235" fill="white">)</text>
+    
+    <rect x="78" y="242" width="367" height="36" fill="rgba(239,68,68,0.15)" rx="2"/>
+    <text x="62" y="255" fill="rgba(255,255,255,0.3)">6</text>
+    <text x="90" y="255" fill="#61afef">getUser</text>
+    <text x="140" y="255" fill="white">(</text>
+    <text x="147" y="255" fill="#e5c07b">@Param</text>
+    <text x="192" y="255" fill="white">(</text>
+    <text x="199" y="255" fill="#98c379">'id'</text>
+    <text x="218" y="255" fill="white">)</text>
+    <text x="225" y="255" fill="#e5c07b">id</text>
+    <text x="237" y="255" fill="white">:</text>
+    <text x="244" y="255" fill="#98c379">string</text>
+    <text x="282" y="255" fill="white">) {</text>
+    
+    <text x="62" y="275" fill="rgba(255,255,255,0.3)">7</text>
+    <text x="98" y="275" fill="#c678dd">return</text>
+    <text x="140" y="275" fill="#61afef">db.query</text>
+    <text x="200" y="275" fill="white">(</text>
+    <text x="207" y="275" fill="#98c379">`SELECT * FROM users WHERE id=${id}`</text>
+    <text x="440" y="275" fill="white">);</text>
+    
+    <text x="62" y="295" fill="rgba(255,255,255,0.3)">8</text>
+    <text x="90" y="295" fill="white">}</text>
+    
+    <!-- Clean code -->
+    <text x="62" y="315" fill="rgba(255,255,255,0.3)">9</text>
+    
+    <text x="58" y="335" fill="rgba(255,255,255,0.3)">10</text>
+    <text x="90" y="335" fill="#e5c07b">@Post</text>
+    <text x="120" y="335" fill="white">()</text>
+    
+    <text x="58" y="355" fill="rgba(255,255,255,0.3)">11</text>
+    <text x="90" y="355" fill="#c678dd">async</text>
+    <text x="128" y="355" fill="#61afef">createUser</text>
+    <text x="200" y="355" fill="white">(</text>
+    <text x="207" y="355" fill="#e5c07b">@Body</text>
+    <text x="240" y="355" fill="white">()</text>
+    <text x="252" y="355" fill="#e5c07b">dto</text>
+    <text x="273" y="355" fill="white">:</text>
+    <text x="280" y="355" fill="#98c379">CreateUserDto</text>
+    <text x="370" y="355" fill="white">) {</text>
+    
+    <text x="58" y="375" fill="rgba(255,255,255,0.3)">12</text>
+    <text x="98" y="375" fill="#5c6370">// Using parameterized query ✓</text>
+  </g>
+  
+  <!-- Squiggle decoration on issue line -->
+  <path d="M 90 278 Q 95 283, 100 278 Q 105 273, 110 278 Q 115 283, 120 278 Q 125 273, 130 278 Q 135 283, 140 278 Q 145 273, 150 278 Q 155 283, 160 278 Q 165 273, 170 278 Q 175 283, 180 278 Q 185 273, 190 278 Q 195 283, 200 278" 
+        stroke="#ef4444" stroke-width="1.5" fill="none"/>
+  
+  <!-- Problems panel -->
+  <g transform="translate(480, 100)">
+    <rect x="0" y="0" width="280" height="180" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+    
+    <text x="15" y="25" fill="white" font-family="system-ui, sans-serif" font-size="12" font-weight="600">PROBLEMS</text>
+    <text x="245" y="25" fill="rgba(255,255,255,0.4)" font-family="system-ui, sans-serif" font-size="10">1 error, 0 warnings</text>
+    
+    <rect x="10" y="40" width="260" height="1" fill="rgba(255,255,255,0.1)"/>
+    
+    <!-- Issue item -->
+    <g transform="translate(15, 55)">
+      <circle cx="6" cy="8" r="6" fill="#ef4444"/>
+      <text x="6" y="12" text-anchor="middle" fill="white" font-family="system-ui, sans-serif" font-size="9">!</text>
+      
+      <text x="20" y="12" fill="white" font-family="system-ui, sans-serif" font-size="11">SQL Injection vulnerability</text>
+      <text x="20" y="28" fill="rgba(255,255,255,0.5)" font-family="system-ui, sans-serif" font-size="10">user.controller.ts:7:12</text>
+      
+      <text x="20" y="50" fill="rgba(255,255,255,0.6)" font-family="system-ui, sans-serif" font-size="10">User input directly interpolated into SQL</text>
+      <text x="20" y="65" fill="rgba(255,255,255,0.6)" font-family="system-ui, sans-serif" font-size="10">query without parameterization.</text>
+      
+      <!-- Quick fix button -->
+      <rect x="0" y="80" width="70" height="24" rx="4" fill="rgba(34,197,94,0.2)" stroke="#22c55e" stroke-width="1"/>
+      <text x="35" y="96" text-anchor="middle" fill="#4ade80" font-family="system-ui, sans-serif" font-size="10" font-weight="500">Quick Fix</text>
+      
+      <rect x="80" y="80" width="70" height="24" rx="4" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+      <text x="115" y="96" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-family="system-ui, sans-serif" font-size="10">Explain</text>
+      
+      <rect x="160" y="80" width="70" height="24" rx="4" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+      <text x="195" y="96" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-family="system-ui, sans-serif" font-size="10">Ignore</text>
+    </g>
+  </g>
+  
+  <!-- Status bar showing scan result -->
+  <g transform="translate(480, 300)">
+    <rect x="0" y="0" width="280" height="100" rx="8" fill="rgba(34,197,94,0.1)" stroke="#22c55e" stroke-width="1"/>
+    
+    <!-- Checkmark animation -->
+    <g transform="translate(25, 35)">
+      <circle cx="15" cy="15" r="18" fill="rgba(34,197,94,0.2)" stroke="#22c55e" stroke-width="2"/>
+      <path d="M 8 15 L 13 20 L 23 10" stroke="#22c55e" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    
+    <text x="75" y="45" fill="white" font-family="system-ui, sans-serif" font-size="14" font-weight="600">Scan Complete</text>
+    <text x="75" y="65" fill="rgba(255,255,255,0.6)" font-family="system-ui, sans-serif" font-size="11">1 issue found in 0.3s</text>
+    
+    <text x="140" y="88" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-family="system-ui, sans-serif" font-size="10">Auto-scan on save: ON</text>
+  </g>
+  
+  <!-- Feature highlights -->
+  <g transform="translate(50, 420)">
+    <rect x="0" y="0" width="700" height="60" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+    
+    <g transform="translate(30, 20)">
+      <rect x="0" y="0" width="55" height="22" rx="3" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)"/>
+      <text x="27" y="15" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-family="monospace" font-size="10">⌘⇧V</text>
+      <text x="70" y="15" fill="rgba(255,255,255,0.7)" font-family="system-ui, sans-serif" font-size="11">Scan current file</text>
+    </g>
+    
+    <g transform="translate(220, 20)">
+      <rect x="0" y="0" width="90" height="22" rx="3" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)"/>
+      <text x="45" y="15" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-family="monospace" font-size="10">⌘⇧Alt V</text>
+      <text x="105" y="15" fill="rgba(255,255,255,0.7)" font-family="system-ui, sans-serif" font-size="11">Scan workspace</text>
+    </g>
+    
+    <g transform="translate(450, 20)">
+      <circle cx="8" cy="11" r="6" fill="#22c55e"/>
+      <text x="22" y="15" fill="rgba(255,255,255,0.7)" font-family="system-ui, sans-serif" font-size="11">Auto-scan on save enabled by default</text>
+    </g>
+  </g>
+</svg>

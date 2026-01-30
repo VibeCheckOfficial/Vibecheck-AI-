@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+  <!-- Magnifying glass circle -->
+  <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2" fill="none"/>
+  
+  <!-- Handle -->
+  <path d="M16 16l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+  
+  <!-- Code lines inside -->
+  <path d="M8 9h6M8 12h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+</svg>

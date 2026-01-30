@@ -1,0 +1,64 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build outputs
+dist/
+build/
+.next/
+out/
+*.tsbuildinfo
+
+# Environment files - NEVER COMMIT SECRETS
+.env
+.env.local
+.env.*.local
+.env.development
+.env.production
+*.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# Testing
+coverage/
+.nyc_output/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Package manager locks (keep pnpm-lock.yaml)
+package-lock.json
+yarn.lock
+
+# Turbo
+.turbo/
+
+# Local database
+*.db
+*.sqlite
+
+# Secrets and credentials
+*.pem
+*.key
+credentials.json
+secrets.json
+
+# VS Code Extension packages
+*.vsix

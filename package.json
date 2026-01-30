@@ -1,0 +1,24 @@
+{
+  "private": true,
+  "name": "vibecheck",
+  "version": "1.0.0",
+  "description": "AI Code Verification - Catch hallucinations before they ship",
+  "packageManager": "pnpm@9.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vibecheckai/vibecheck.git"
+  },
+  "homepage": "https://vibecheckai.dev",
+  "license": "BSL-1.1",
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "test": "turbo run test",
+    "lint": "turbo run lint",
+    "check-types": "turbo run check-types"
+  },
+  "devDependencies": {
+    "turbo": "^2.0.0",
+    "vitest": "^1.2.0"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "target": "ES2022",
+    "moduleDetection": "force",
+    "isolatedModules": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "noUncheckedIndexedAccess": true,
+    "forceConsistentCasingInFileNames": true
+  }
+}

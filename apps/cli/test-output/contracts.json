@@ -1,0 +1,19 @@
+{
+  "version": "1.0.0",
+  "generatedAt": "2026-01-30T09:21:54.247Z",
+  "contracts": [
+    {
+      "path": "/api/config",
+      "method": "GET",
+      "description": "Inferred from schema: configSchema",
+      "request": {},
+      "responses": []
+    }
+  ],
+  "summary": {
+    "totalContracts": 1,
+    "byMethod": {
+      "GET": 1
+    }
+  }
+}

@@ -1,0 +1,63 @@
+# VibeCheck Configuration
+# https://vibecheck.dev/docs/configuration
+
+# Severity threshold for CI failures
+# Options: critical, high, medium, low
+failOn: high
+
+# Industry-specific pattern detection
+# Options: fintech, healthcare, ecommerce, saas, general
+industries:
+  - general
+
+# File patterns to include
+include:
+  - "**/*.ts"
+  - "**/*.tsx"
+  - "**/*.js"
+  - "**/*.jsx"
+
+# File patterns to exclude
+exclude:
+  - "**/*.test.*"
+  - "**/*.spec.*"
+  - "**/__tests__/**"
+  - "**/__mocks__/**"
+  - "**/fixtures/**"
+  - "**/storybook/**"
+
+# Enable AST-based analysis (deeper but slower)
+enableAst: true
+
+# Enable ML-based pattern learning
+enableMl: true
+
+# Team configuration (for shared rules)
+# team: your-team-id
+# apiKey: ${VIBECHECK_API_KEY}
+# apiEndpoint: https://api.vibecheck.dev
+
+# Custom rules
+# rules:
+#   - id: custom-internal-url
+#     pattern: "internal\\.mycompany\\.com"
+#     severity: high
+#     category: hardcoded-config
+#     description: "Internal URL should use environment variable"
+#     fix: "Use process.env.INTERNAL_API_URL"
+
+# Suppressions for known issues
+# suppressions:
+#   - rule: mock-variable
+#     file: "src/testing/**"
+#     reason: "Test utilities directory"
+#
+#   - rule: test-email
+#     file: "src/config/defaults.ts"
+#     line: 42
+#     reason: "Default email for demo mode"
+#     expires: "2025-06-01"
+
+# Report output configuration
+reportFormat: text
+# reportOutput: vibecheck-report.json

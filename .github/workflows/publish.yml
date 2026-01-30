@@ -1,0 +1,95 @@
+name: Publish to npm
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      dry-run:
+        description: 'Dry run (no actual publish)'
+        required: false
+        default: 'false'
+        type: boolean
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  publish:
+    name: Publish Packages
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 9
+
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - name: Setup pnpm cache
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build all packages
+        run: pnpm build
+
+      - name: Run tests
+        run: pnpm test
+
+      - name: Publish @vibecheck/core
+        if: ${{ github.event.inputs.dry-run != 'true' }}
+        run: pnpm publish --filter @vibecheck/core --access public --no-git-checks
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Publish @vibecheck/cli
+        if: ${{ github.event.inputs.dry-run != 'true' }}
+        run: pnpm publish --filter @vibecheck/cli --access public --no-git-checks
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Publish @vibecheck/mcp-server
+        if: ${{ github.event.inputs.dry-run != 'true' }}
+        run: pnpm publish --filter @vibecheck/mcp-server --access public --no-git-checks
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Publish @vibecheck/github-action
+        if: ${{ github.event.inputs.dry-run != 'true' }}
+        run: pnpm publish --filter @vibecheck/github-action --access public --no-git-checks
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Dry run summary
+        if: ${{ github.event.inputs.dry-run == 'true' }}
+        run: |
+          echo "## Dry Run Complete" >> $GITHUB_STEP_SUMMARY
+          echo "The following packages would be published:" >> $GITHUB_STEP_SUMMARY
+          echo "- @vibecheck/core" >> $GITHUB_STEP_SUMMARY
+          echo "- @vibecheck/cli" >> $GITHUB_STEP_SUMMARY
+          echo "- @vibecheck/mcp-server" >> $GITHUB_STEP_SUMMARY
+          echo "- @vibecheck/github-action" >> $GITHUB_STEP_SUMMARY

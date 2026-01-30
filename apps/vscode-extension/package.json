@@ -1,0 +1,48 @@
+{
+  "name": "my-extension",
+  "displayName": "My Extension",
+  "version": "0.1.0",
+  "publisher": "my-publisher",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "main": "./dist/extension.js",
+  "activationEvents": [
+    "onCommand:myExtension.activate"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "myExtension.helloWorld",
+        "title": "Hello World"
+      }
+    ],
+    "configuration": {
+      "title": "My Extension",
+      "properties": {
+        "myExtension.serverPath": {
+          "type": "string",
+          "description": "Path to MCP server"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "pnpm run package",
+    "compile": "node esbuild.js",
+    "watch": "node esbuild.js --watch",
+    "package": "node esbuild.js --production",
+    "test": "echo 'Skipping VS Code extension tests - requires VS Code environment' && exit 0",
+    "check-types": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
+    "@types/node": "^20.10.0",
+    "@types/vscode": "^1.85.0",
+    "@vscode/test-cli": "^0.0.4",
+    "@vscode/test-electron": "^2.3.8",
+    "esbuild": "^0.20.0",
+    "typescript": "^5.3.0"
+  },
+  "dependencies": {}
+}

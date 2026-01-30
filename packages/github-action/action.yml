@@ -1,0 +1,51 @@
+name: 'VibeCheck Auto-Fix'
+description: 'Analyze code for issues and apply/suggest auto-fixes'
+author: 'VibeCheck'
+
+branding:
+  icon: 'check-circle'
+  color: 'green'
+
+inputs:
+  mode:
+    description: 'Operation mode: suggest (post PR comment) or auto-commit (push fixes)'
+    required: false
+    default: 'suggest'
+  token:
+    description: 'GitHub token for API access'
+    required: true
+    default: ${{ github.token }}
+  config-path:
+    description: 'Path to VibeCheck configuration file'
+    required: false
+    default: '.vibecheck/config.json'
+  confidence-threshold:
+    description: 'Minimum confidence threshold for auto-applying fixes (0-1)'
+    required: false
+    default: '0.85'
+  max-fixes:
+    description: 'Maximum number of fixes to apply per run'
+    required: false
+    default: '10'
+  fail-on-issues:
+    description: 'Fail the workflow if unfixable issues are found'
+    required: false
+    default: 'true'
+  commit-message:
+    description: 'Commit message prefix for auto-committed fixes'
+    required: false
+    default: 'vibecheck autofix:'
+
+outputs:
+  issues-found:
+    description: 'Total number of issues found'
+  fixes-applied:
+    description: 'Number of fixes auto-applied'
+  fixes-suggested:
+    description: 'Number of fixes suggested for review'
+  pr-comment-url:
+    description: 'URL of the PR comment (if in suggest mode)'
+
+runs:
+  using: 'node20'
+  main: 'dist/index.js'

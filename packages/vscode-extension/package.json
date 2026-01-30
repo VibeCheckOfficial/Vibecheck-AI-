@@ -1,0 +1,1226 @@
+{
+  "name": "vibecheck-AI",
+  "displayName": "Vibecheck — Agent Firewall (Stop Context Drift)",
+  "description": "Stop AI context drift before it ships. Blocks ghost routes, env vars, and auth mismatches unless proven against repo truth. Proof-carry-change for Cursor, Copilot, Claude, and Windsurf.",
+  "version": "5.0.0",
+  "publisher": "Vibecheck-AI",
+  "icon": "images/vibe_logo.ico",
+  "license": "SEE LICENSE IN LICENSE",
+  "homepage": "https://vibecheck.ai",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vibecheck-oss/vibecheck"
+  },
+  "bugs": {
+    "url": "https://github.com/vibecheck-oss/vibecheck/issues"
+  },
+  "engines": {
+    "vscode": "^1.85.0",
+    "node": ">=20.11"
+  },
+  "categories": [
+    "Linters",
+    "Testing",
+    "Machine Learning",
+    "Other"
+  ],
+  "keywords": [
+    "cursor",
+    "copilot",
+    "claude",
+    "ai coding",
+    "ai hallucination",
+    "mcp",
+    "model context protocol",
+    "ai guardrail",
+    "vibe coding",
+    "fake features",
+    "code security",
+    "ai agent",
+    "windsurf",
+    "codeium",
+    "ai code review",
+    "hallucination detection",
+    "agent firewall",
+    "context drift",
+    "repo lock",
+    "proof-carry-change"
+  ],
+  "galleryBanner": {
+    "color": "#0a0a0a",
+    "theme": "dark"
+  },
+  "activationEvents": [
+    "onStartupFinished",
+    "onView:vibecheck.sidebar"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "vibecheck.scan",
+        "title": "Scan Current File",
+        "icon": "$(search)",
+        "category": "VibeCheck"
+      },
+      {
+        "command": "vibecheck.scanWorkspace",
+        "title": "Scan Entire Workspace",
+        "icon": "$(folder)",
+        "category": "VibeCheck"
+      },
+      {
+        "command": "vibecheck.openDashboard",
+        "title": "Open Dashboard",
+        "icon": "$(dashboard)",
+        "category": "VibeCheck"
+      },
+      {
+        "command": "vibecheck.quickActions",
+        "title": "Quick Actions",
+        "icon": "$(zap)",
+        "category": "VibeCheck"
+      },
+      {
+        "command": "vibecheck.fix",
+        "title": "Auto-Fix Issue",
+        "icon": "$(sparkle)",
+        "category": "VibeCheck"
+      },
+      {
+        "command": "vibecheck.fixAll",
+        "title": "Fix All Issues in File",
+        "icon": "$(wand)",
+        "category": "VibeCheck"
+      },
+      {
+        "command": "vibecheck.realityMode",
+        "title": "Run Reality Mode",
+        "icon": "$(beaker)",
+        "category": "VibeCheck"
+      },
+      {
+        "command": "vibecheck.realityModeFile",
+        "title": "Run Reality Mode on File",
+        "icon": "$(beaker)",
+        "category": "VibeCheck"
+      },
+      {
+        "command": "vibecheck.configureRealityMode",
+        "title": "Configure Reality Mode",
+        "icon": "$(gear)",
+        "category": "VibeCheck"
+      },
+      {
+        "command": "vibecheck.exportReport",
+        "title": "Export Report",
+        "icon": "$(export)",
+        "category": "VibeCheck"
+      },
+      {
+        "command": "vibecheck.exportReportAs",
+        "title": "Export Report As...",
+        "icon": "$(export)",
+        "category": "VibeCheck"
+      },
+      {
+        "command": "vibecheck.analyzeCodeFlow",
+        "title": "Analyze Code Flow",
+        "icon": "$(type-hierarchy)",
+        "category": "VibeCheck"
+      },
+      {
+        "command": "vibecheck.showCodeFlowPanel",
+        "title": "Show Code Flow Panel",
+        "icon": "$(type-hierarchy)",
+        "category": "VibeCheck"
+      },
+      {
+        "command": "vibecheck.traceVariable",
+        "title": "Trace Variable",
+        "icon": "$(git-commit)",
+        "category": "VibeCheck"
+      },
+      {
+        "command": "vibecheck.showSecurityHeatmap",
+        "title": "Show Security Heatmap",
+        "icon": "$(flame)",
+        "category": "VibeCheck"
+      },
+      {
+        "command": "vibecheck.analyzeSecurityRisk",
+        "title": "Analyze Security Risk",
+        "icon": "$(flame)",
+        "category": "VibeCheck"
+      },
+      {
+        "command": "vibecheck.scanWorkspaceHeatmap",
+        "title": "Scan Workspace Security",
+        "icon": "$(flame)",
+        "category": "VibeCheck"
+      },
+      {
+        "command": "vibecheck.explainCode",
+        "title": "Explain Code",
+        "icon": "$(lightbulb)",
+        "category": "VibeCheck"
+      },
+      {
+        "command": "vibecheck.explainSecurityRisk",
+        "title": "Explain Security Risk",
+        "icon": "$(shield)",
+        "category": "VibeCheck"
+      },
+      {
+        "command": "vibecheck.configureAi",
+        "title": "Configure AI Provider",
+        "icon": "$(gear)",
+        "category": "VibeCheck"
+      },
+      {
+        "command": "vibecheck.toggleWatch",
+        "title": "Toggle Watch Mode",
+        "icon": "$(eye)",
+        "category": "VibeCheck"
+      },
+      {
+        "command": "vibecheck.refreshIssues",
+        "title": "Refresh Issues",
+        "icon": "$(refresh)",
+        "category": "VibeCheck"
+      },
+      {
+        "command": "vibecheck.clearIssues",
+        "title": "Clear All Issues",
+        "icon": "$(clear-all)",
+        "category": "VibeCheck"
+      },
+      {
+        "command": "vibecheck.showIssueDetails",
+        "title": "Show Issue Details",
+        "category": "VibeCheck"
+      },
+      {
+        "command": "vibecheck.ignoreIssue",
+        "title": "Ignore This Issue",
+        "category": "VibeCheck"
+      },
+      {
+        "command": "vibecheck.ignoreRule",
+        "title": "Ignore Rule in File",
+        "category": "VibeCheck"
+      },
+      {
+        "command": "vibecheck.showOutput",
+        "title": "Show Output",
+        "icon": "$(terminal)",
+        "category": "VibeCheck"
+      },
+      {
+        "command": "vibecheck.doctor",
+        "title": "Run Health Check (Doctor)",
+        "icon": "$(heart)",
+        "category": "VibeCheck"
+      },
+      {
+        "command": "vibecheck.audit",
+        "title": "Full Security Audit",
+        "icon": "$(shield)",
+        "category": "VibeCheck"
+      },
+      {
+        "command": "vibecheck.forge",
+        "title": "Generate AI Rules (Forge)",
+        "icon": "$(symbol-ruler)",
+        "category": "VibeCheck"
+      },
+      {
+        "command": "vibecheck.ship",
+        "title": "Get Ship Verdict",
+        "icon": "$(rocket)",
+        "category": "VibeCheck"
+      },
+      {
+        "command": "vibecheck.checkpoint",
+        "title": "Create Checkpoint",
+        "icon": "$(history)",
+        "category": "VibeCheck"
+      },
+      {
+        "command": "vibecheck.checkpointRestore",
+        "title": "Restore Checkpoint",
+        "icon": "$(discard)",
+        "category": "VibeCheck"
+      },
+      {
+        "command": "vibecheck.packs",
+        "title": "Generate Report Bundle",
+        "icon": "$(package)",
+        "category": "VibeCheck"
+      },
+      {
+        "command": "vibecheck.startWatch",
+        "title": "Start Watch Mode (Terminal)",
+        "icon": "$(eye)",
+        "category": "VibeCheck"
+      },
+      {
+        "command": "vibecheck.aiFix",
+        "title": "AI Auto-Fix (PRO)",
+        "icon": "$(sparkle)",
+        "category": "VibeCheck"
+      },
+      {
+        "command": "vibecheck.shieldStatus",
+        "title": "Shield Status (Agent Firewall)",
+        "icon": "$(shield)",
+        "category": "VibeCheck"
+      },
+      {
+        "command": "vibecheck.shieldToggle",
+        "title": "Toggle Shield Mode",
+        "icon": "$(shield)",
+        "category": "VibeCheck"
+      },
+      {
+        "command": "vibecheck.shieldCheck",
+        "title": "Shield Check (Verify AI Claims)",
+        "icon": "$(verified)",
+        "category": "VibeCheck"
+      },
+      {
+        "command": "vibecheck.shieldEnforce",
+        "title": "Shield: Enable Enforce Mode",
+        "icon": "$(lock)",
+        "category": "VibeCheck"
+      },
+      {
+        "command": "vibecheck.shieldObserve",
+        "title": "Shield: Enable Observe Mode",
+        "icon": "$(eye)",
+        "category": "VibeCheck"
+      },
+      {
+        "command": "vibecheck.shieldOff",
+        "title": "Shield: Disable",
+        "icon": "$(circle-slash)",
+        "category": "VibeCheck"
+      },
+      {
+        "command": "vibecheck.shieldInstall",
+        "title": "Shield: Install IDE Hooks",
+        "icon": "$(plug)",
+        "category": "VibeCheck"
+      },
+      {
+        "command": "vibecheck.showVerdict",
+        "title": "Show Verdict Panel",
+        "icon": "$(tasklist)",
+        "category": "VibeCheck"
+      },
+      {
+        "command": "vibecheck.setIntent",
+        "title": "Set Intent",
+        "icon": "$(shield)",
+        "category": "VibeCheck"
+      },
+      {
+        "command": "vibecheck.editIntent",
+        "title": "Edit Intent",
+        "icon": "$(edit)",
+        "category": "VibeCheck"
+      },
+      {
+        "command": "vibecheck.showIntent",
+        "title": "Show Current Intent",
+        "icon": "$(info)",
+        "category": "VibeCheck"
+      },
+      {
+        "command": "vibecheck.clearIntent",
+        "title": "Clear Intent",
+        "icon": "$(trash)",
+        "category": "VibeCheck"
+      },
+      {
+        "command": "vibecheck.promptBuilder",
+        "title": "Open Prompt Builder",
+        "icon": "$(sparkle)",
+        "category": "VibeCheck"
+      },
+      {
+        "command": "vibecheck.promptBuilderQuick",
+        "title": "Quick Prompt Builder",
+        "icon": "$(zap)",
+        "category": "VibeCheck"
+      },
+      {
+        "command": "vibecheck.lockFile",
+        "title": "Lock File from Agent",
+        "icon": "$(lock)",
+        "category": "VibeCheck"
+      },
+      {
+        "command": "vibecheck.lockFolder",
+        "title": "Lock Folder from Agent",
+        "icon": "$(lock)",
+        "category": "VibeCheck"
+      },
+      {
+        "command": "vibecheck.unlockFile",
+        "title": "Unlock File",
+        "icon": "$(unlock)",
+        "category": "VibeCheck"
+      },
+      {
+        "command": "vibecheck.unlockFolder",
+        "title": "Unlock Folder",
+        "icon": "$(unlock)",
+        "category": "VibeCheck"
+      },
+      {
+        "command": "vibecheck.toggleLock",
+        "title": "Toggle Lock",
+        "icon": "$(lock)",
+        "category": "VibeCheck"
+      },
+      {
+        "command": "vibecheck.showLockedFiles",
+        "title": "Show All Locked Files",
+        "icon": "$(list-flat)",
+        "category": "VibeCheck"
+      },
+      {
+        "command": "vibecheck.unlockAll",
+        "title": "Unlock All Files",
+        "icon": "$(unlock)",
+        "category": "VibeCheck"
+      },
+      {
+        "command": "vibecheck.showSidebar",
+        "title": "Show Sidebar",
+        "icon": "$(layout-sidebar-left)",
+        "category": "VibeCheck"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "vibecheck",
+          "title": "VibeCheck",
+          "icon": "images/vibecheck-icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "vibecheck": [
+        {
+          "type": "webview",
+          "id": "vibecheck.sidebar",
+          "name": "VibeCheck",
+          "contextualTitle": "VibeCheck Dashboard",
+          "visibility": "visible"
+        },
+        {
+          "id": "vibecheck.issues",
+          "name": "Issues",
+          "contextualTitle": "Security Issues"
+        },
+        {
+          "id": "vibecheck.history",
+          "name": "Scan History",
+          "contextualTitle": "Recent Scans"
+        }
+      ]
+    },
+    "viewsWelcome": [
+      {
+        "view": "vibecheck.issues",
+        "contents": "No issues detected.\n[Scan Current File](command:vibecheck.scan)\n[Scan Workspace](command:vibecheck.scanWorkspace)\n[Open Quick Actions](command:vibecheck.quickActions)"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "vibecheck.scan",
+          "when": "view == vibecheck.issues",
+          "group": "navigation"
+        },
+        {
+          "command": "vibecheck.refreshIssues",
+          "when": "view == vibecheck.issues",
+          "group": "navigation"
+        },
+        {
+          "command": "vibecheck.exportReport",
+          "when": "view == vibecheck.issues"
+        },
+        {
+          "command": "vibecheck.clearIssues",
+          "when": "view == vibecheck.issues"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "vibecheck.fix",
+          "when": "view == vibecheck.issues && viewItem == issue",
+          "group": "inline"
+        },
+        {
+          "command": "vibecheck.ignoreIssue",
+          "when": "view == vibecheck.issues && viewItem == issue"
+        },
+        {
+          "command": "vibecheck.ignoreRule",
+          "when": "view == vibecheck.issues && viewItem == issue"
+        },
+        {
+          "command": "vibecheck.explainSecurityRisk",
+          "when": "view == vibecheck.issues && viewItem == issue"
+        }
+      ],
+      "editor/context": [
+        {
+          "submenu": "vibecheck.submenu",
+          "group": "vibecheck"
+        }
+      ],
+      "explorer/context": [
+        {
+          "submenu": "vibecheck.lockSubmenu",
+          "group": "2_workspace",
+          "when": "explorerResourceIsFolder || !explorerResourceIsFolder"
+        }
+      ],
+      "vibecheck.lockSubmenu": [
+        {
+          "command": "vibecheck.lockFile",
+          "when": "!explorerResourceIsFolder && !vibecheck.isLocked",
+          "group": "1_lock"
+        },
+        {
+          "command": "vibecheck.lockFolder",
+          "when": "explorerResourceIsFolder && !vibecheck.isLocked",
+          "group": "1_lock"
+        },
+        {
+          "command": "vibecheck.unlockFile",
+          "when": "!explorerResourceIsFolder && vibecheck.isLocked",
+          "group": "1_lock"
+        },
+        {
+          "command": "vibecheck.unlockFolder",
+          "when": "explorerResourceIsFolder && vibecheck.isLocked",
+          "group": "1_lock"
+        },
+        {
+          "command": "vibecheck.showLockedFiles",
+          "group": "2_manage"
+        },
+        {
+          "command": "vibecheck.unlockAll",
+          "group": "2_manage"
+        }
+      ],
+      "vibecheck.submenu": [
+        {
+          "command": "vibecheck.scan",
+          "group": "1_scan"
+        },
+        {
+          "command": "vibecheck.fix",
+          "group": "1_scan",
+          "when": "vibecheck.hasIssueAtCursor"
+        },
+        {
+          "command": "vibecheck.fixAll",
+          "group": "1_scan"
+        },
+        {
+          "command": "vibecheck.analyzeCodeFlow",
+          "group": "2_analyze"
+        },
+        {
+          "command": "vibecheck.traceVariable",
+          "group": "2_analyze"
+        },
+        {
+          "command": "vibecheck.analyzeSecurityRisk",
+          "group": "2_analyze"
+        },
+        {
+          "command": "vibecheck.explainCode",
+          "group": "3_ai"
+        },
+        {
+          "command": "vibecheck.explainSecurityRisk",
+          "group": "3_ai"
+        },
+        {
+          "command": "vibecheck.realityModeFile",
+          "group": "4_test"
+        }
+      ],
+      "editor/title": [
+        {
+          "command": "vibecheck.scan",
+          "group": "navigation",
+          "when": "resourceLangId =~ /javascript|typescript|typescriptreact|javascriptreact|python|go|rust/"
+        },
+        {
+          "command": "vibecheck.quickActions",
+          "group": "navigation",
+          "when": "resourceLangId =~ /javascript|typescript|typescriptreact|javascriptreact|python|go|rust/"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "vibecheck.showIssueDetails",
+          "when": "false"
+        }
+      ]
+    },
+    "submenus": [
+      {
+        "id": "vibecheck.submenu",
+        "label": "VibeCheck"
+      },
+      {
+        "id": "vibecheck.lockSubmenu",
+        "label": "VibeCheck Lock",
+        "icon": "$(lock)"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "vibecheck.scan",
+        "key": "ctrl+shift+v",
+        "mac": "cmd+shift+v",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "vibecheck.quickActions",
+        "key": "ctrl+shift+a",
+        "mac": "cmd+shift+a",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "vibecheck.fix",
+        "key": "ctrl+shift+f",
+        "mac": "cmd+shift+f",
+        "when": "editorTextFocus && vibecheck.hasIssueAtCursor"
+      },
+      {
+        "command": "vibecheck.fixAll",
+        "key": "ctrl+alt+shift+f",
+        "mac": "cmd+alt+shift+f",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "vibecheck.openDashboard",
+        "key": "ctrl+shift+d",
+        "mac": "cmd+shift+d"
+      },
+      {
+        "command": "vibecheck.realityMode",
+        "key": "ctrl+shift+r",
+        "mac": "cmd+shift+r"
+      },
+      {
+        "command": "vibecheck.analyzeCodeFlow",
+        "key": "ctrl+shift+t",
+        "mac": "cmd+shift+t",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "vibecheck.traceVariable",
+        "key": "ctrl+alt+t",
+        "mac": "cmd+alt+t",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "vibecheck.showSecurityHeatmap",
+        "key": "ctrl+shift+h",
+        "mac": "cmd+shift+h"
+      },
+      {
+        "command": "vibecheck.explainCode",
+        "key": "ctrl+shift+e",
+        "mac": "cmd+shift+e",
+        "when": "editorTextFocus && editorHasSelection"
+      },
+      {
+        "command": "vibecheck.exportReport",
+        "key": "ctrl+alt+e",
+        "mac": "cmd+alt+e"
+      },
+      {
+        "command": "vibecheck.promptBuilder",
+        "key": "ctrl+shift+b",
+        "mac": "cmd+shift+b"
+      },
+      {
+        "command": "vibecheck.promptBuilderQuick",
+        "key": "ctrl+alt+p",
+        "mac": "cmd+alt+p"
+      }
+    ],
+    "configuration": {
+      "title": "VibeCheck",
+      "properties": {
+        "vibecheck.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable VibeCheck extension"
+        },
+        "vibecheck.scanOnSave": {
+          "type": "boolean",
+          "default": true,
+          "description": "Automatically scan files on save"
+        },
+        "vibecheck.scanOnOpen": {
+          "type": "boolean",
+          "default": false,
+          "description": "Automatically scan files when opened"
+        },
+        "vibecheck.watchMode": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable real-time scanning as you type"
+        },
+        "vibecheck.watchModeDelay": {
+          "type": "number",
+          "default": 1000,
+          "description": "Delay in ms before scanning after typing stops"
+        },
+        "vibecheck.severity.error": {
+          "type": "string",
+          "default": "Error",
+          "enum": [
+            "Error",
+            "Warning",
+            "Information",
+            "Hint"
+          ],
+          "description": "VS Code severity for VibeCheck errors"
+        },
+        "vibecheck.severity.warning": {
+          "type": "string",
+          "default": "Warning",
+          "enum": [
+            "Error",
+            "Warning",
+            "Information",
+            "Hint"
+          ],
+          "description": "VS Code severity for VibeCheck warnings"
+        },
+        "vibecheck.engines": {
+          "type": "array",
+          "default": [
+            "fake-feature",
+            "security",
+            "hallucination",
+            "dependency"
+          ],
+          "items": {
+            "type": "string",
+            "enum": [
+              "fake-feature",
+              "security",
+              "hallucination",
+              "dependency",
+              "performance",
+              "accessibility"
+            ]
+          },
+          "description": "Scanning engines to enable"
+        },
+        "vibecheck.ignorePaths": {
+          "type": "array",
+          "default": [
+            "node_modules",
+            "dist",
+            "build",
+            ".git",
+            "coverage",
+            ".next",
+            "__pycache__"
+          ],
+          "items": {
+            "type": "string"
+          },
+          "description": "Paths to ignore during scanning"
+        },
+        "vibecheck.cliPath": {
+          "type": "string",
+          "default": "",
+          "description": "Path to VibeCheck CLI (uses global installation if empty)"
+        },
+        "vibecheck.apiKey": {
+          "type": "string",
+          "default": "",
+          "description": "VibeCheck API key for cloud features"
+        },
+        "vibecheck.autoFix.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable AI-powered auto-fix suggestions"
+        },
+        "vibecheck.autoFix.provider": {
+          "type": "string",
+          "default": "anthropic",
+          "enum": [
+            "anthropic",
+            "openai",
+            "local"
+          ],
+          "description": "AI provider for auto-fix"
+        },
+        "vibecheck.realityMode.browser": {
+          "type": "string",
+          "default": "chromium",
+          "enum": [
+            "chromium",
+            "firefox",
+            "webkit"
+          ],
+          "description": "Browser to use for Reality Mode testing"
+        },
+        "vibecheck.realityMode.headless": {
+          "type": "boolean",
+          "default": true,
+          "description": "Run Reality Mode in headless mode"
+        },
+        "vibecheck.realityMode.viewport": {
+          "type": "object",
+          "default": {
+            "width": 1280,
+            "height": 720
+          },
+          "properties": {
+            "width": {
+              "type": "number"
+            },
+            "height": {
+              "type": "number"
+            }
+          },
+          "description": "Viewport size for Reality Mode tests"
+        },
+        "vibecheck.realityMode.timeout": {
+          "type": "number",
+          "default": 30000,
+          "description": "Timeout in ms for Reality Mode tests"
+        },
+        "vibecheck.realityMode.baseUrl": {
+          "type": "string",
+          "default": "",
+          "description": "Base URL for Reality Mode tests (auto-detected if empty)"
+        },
+        "vibecheck.ai.provider": {
+          "type": "string",
+          "default": "anthropic",
+          "enum": [
+            "anthropic",
+            "openai"
+          ],
+          "description": "AI provider for code explanation"
+        },
+        "vibecheck.ai.anthropicApiKey": {
+          "type": "string",
+          "default": "",
+          "description": "Anthropic API key for Claude"
+        },
+        "vibecheck.ai.openaiApiKey": {
+          "type": "string",
+          "default": "",
+          "description": "OpenAI API key for GPT-4"
+        },
+        "vibecheck.codeFlow.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable Code Flow Visualizer"
+        },
+        "vibecheck.codeFlow.showDecorations": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show inline decorations for code flow"
+        },
+        "vibecheck.heatmap.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable Security Heatmap"
+        },
+        "vibecheck.heatmap.showDecorations": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show inline decorations for security risk"
+        },
+        "vibecheck.reports.defaultFormat": {
+          "type": "string",
+          "default": "html",
+          "enum": [
+            "html",
+            "markdown",
+            "json",
+            "sarif",
+            "pdf"
+          ],
+          "description": "Default format for exported reports"
+        },
+        "vibecheck.reports.includeCharts": {
+          "type": "boolean",
+          "default": true,
+          "description": "Include charts in HTML reports"
+        },
+        "vibecheck.reports.includeCodeSnippets": {
+          "type": "boolean",
+          "default": true,
+          "description": "Include code snippets in reports"
+        },
+        "vibecheck.reports.includeRecommendations": {
+          "type": "boolean",
+          "default": true,
+          "description": "Include fix recommendations in reports"
+        },
+        "vibecheck.telemetry": {
+          "type": "boolean",
+          "default": true,
+          "description": "Send anonymous usage data to improve VibeCheck"
+        },
+        "vibecheck.showInlineHints": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show inline hints for detected issues"
+        },
+        "vibecheck.decorations.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show visual decorations for issues"
+        },
+        "vibecheck.codeLens.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show CodeLens annotations above lines with issues"
+        },
+        "vibecheck.codeLens.showFileSummary": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show file-level issue summary at top of file"
+        },
+        "vibecheck.inlayHints.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show inline issue hints at end of lines"
+        },
+        "vibecheck.output.showOnScan": {
+          "type": "boolean",
+          "default": false,
+          "description": "Automatically show output channel when scanning"
+        }
+      }
+    },
+    "colors": [
+      {
+        "id": "vibecheck.errorBackground",
+        "description": "Background color for error highlights",
+        "defaults": {
+          "dark": "#ff5c5c20",
+          "light": "#ff5c5c15"
+        }
+      },
+      {
+        "id": "vibecheck.warningBackground",
+        "description": "Background color for warning highlights",
+        "defaults": {
+          "dark": "#ffcc0020",
+          "light": "#ffcc0015"
+        }
+      },
+      {
+        "id": "vibecheck.infoBackground",
+        "description": "Background color for info highlights",
+        "defaults": {
+          "dark": "#5c9cff20",
+          "light": "#5c9cff15"
+        }
+      },
+      {
+        "id": "vibecheck.heatmapCritical",
+        "description": "Heatmap color for critical risk",
+        "defaults": {
+          "dark": "#ff000040",
+          "light": "#ff000030"
+        }
+      },
+      {
+        "id": "vibecheck.heatmapHigh",
+        "description": "Heatmap color for high risk",
+        "defaults": {
+          "dark": "#ff660040",
+          "light": "#ff660030"
+        }
+      },
+      {
+        "id": "vibecheck.heatmapMedium",
+        "description": "Heatmap color for medium risk",
+        "defaults": {
+          "dark": "#ffcc0040",
+          "light": "#ffcc0030"
+        }
+      },
+      {
+        "id": "vibecheck.heatmapLow",
+        "description": "Heatmap color for low risk",
+        "defaults": {
+          "dark": "#00ff0020",
+          "light": "#00ff0015"
+        }
+      },
+      {
+        "id": "vibecheck.flowSource",
+        "description": "Color for data flow sources",
+        "defaults": {
+          "dark": "#ff9500",
+          "light": "#ff9500"
+        }
+      },
+      {
+        "id": "vibecheck.flowSink",
+        "description": "Color for data flow sinks",
+        "defaults": {
+          "dark": "#ff3b30",
+          "light": "#ff3b30"
+        }
+      },
+      {
+        "id": "vibecheck.flowTransform",
+        "description": "Color for data flow transforms",
+        "defaults": {
+          "dark": "#5856d6",
+          "light": "#5856d6"
+        }
+      },
+      {
+        "id": "vibecheck.lockedFile",
+        "description": "Color for locked files in explorer (grayed out)",
+        "defaults": {
+          "dark": "#808080",
+          "light": "#a0a0a0"
+        }
+      },
+      {
+        "id": "vibecheck.lockedFileBadge",
+        "description": "Badge background color for locked files",
+        "defaults": {
+          "dark": "#ff6b6b",
+          "light": "#ff5252"
+        }
+      }
+    ],
+    "problemMatchers": [
+      {
+        "name": "vibecheck",
+        "owner": "vibecheck",
+        "fileLocation": [
+          "relative",
+          "${workspaceFolder}"
+        ],
+        "pattern": {
+          "regexp": "^(.+):(\\d+):(\\d+):\\s+(error|warning|info)\\s+(.+)\\s+\\[(.+)\\]$",
+          "file": 1,
+          "line": 2,
+          "column": 3,
+          "severity": 4,
+          "message": 5,
+          "code": 6
+        }
+      }
+    ],
+    "walkthroughs": [
+      {
+        "id": "vibecheck.gettingStarted",
+        "title": "Get Started with VibeCheck",
+        "description": "Learn how to use VibeCheck to catch fake features and security issues in AI-generated code",
+        "steps": [
+          {
+            "id": "welcome",
+            "title": "Welcome to VibeCheck",
+            "description": "VibeCheck catches **fake features** in AI-generated code - code that looks right but doesn't actually work. Built for \"vibe coders\" using Cursor, Copilot, or Claude.\n\n[Get Started](command:vibecheck.quickActions)",
+            "media": {
+              "image": "images/walkthrough-welcome.svg",
+              "altText": "Welcome to VibeCheck"
+            },
+            "completionEvents": [
+              "onCommand:vibecheck.quickActions"
+            ]
+          },
+          {
+            "id": "scanFile",
+            "title": "Scan Your First File",
+            "description": "Open any TypeScript, JavaScript, or Python file and press:\n- **Mac**: ``Cmd+Shift+V``\n- **Win/Linux**: ``Ctrl+Shift+V``\n\nVibeCheck will scan for fake features, security issues, and AI hallucinations.\n\n[Scan Current File](command:vibecheck.scan)",
+            "media": {
+              "image": "images/walkthrough-scanning.svg",
+              "altText": "One-click security scanning"
+            },
+            "completionEvents": [
+              "onCommand:vibecheck.scan"
+            ]
+          },
+          {
+            "id": "quickActions",
+            "title": "Quick Actions Menu",
+            "description": "Access all VibeCheck features from one menu:\n- **Mac**: ``Cmd+Shift+A``\n- **Win/Linux**: ``Ctrl+Shift+A``\n\nThis is your command center for scanning, fixing, and reporting.\n\n[Open Quick Actions](command:vibecheck.quickActions)",
+            "media": {
+              "image": "images/walkthrough-welcome.svg",
+              "altText": "Quick Actions menu"
+            },
+            "completionEvents": [
+              "onCommand:vibecheck.quickActions"
+            ]
+          },
+          {
+            "id": "codeFlow",
+            "title": "Trace Data Flow",
+            "description": "Visualize how data flows through your code to identify security risks like SQL injection or XSS:\n- **Mac**: ``Cmd+Shift+T`` or ``Cmd+Alt+T`` to trace a variable\n- **Win/Linux**: ``Ctrl+Shift+T``\n\nSee sources, transforms, and sinks with color-coded highlighting.\n\n[Analyze Code Flow](command:vibecheck.analyzeCodeFlow)",
+            "media": {
+              "image": "images/walkthrough-codeflow.svg",
+              "altText": "Code Flow Visualizer"
+            },
+            "completionEvents": [
+              "onCommand:vibecheck.analyzeCodeFlow"
+            ]
+          },
+          {
+            "id": "heatmap",
+            "title": "Security Heatmap",
+            "description": "See security risk density across your entire codebase at a glance:\n- **Mac**: ``Cmd+Shift+H``\n- **Win/Linux**: ``Ctrl+Shift+H``\n\nRed = Critical, Orange = High, Yellow = Medium. Find hotspots instantly.\n\n[Show Security Heatmap](command:vibecheck.showSecurityHeatmap)",
+            "media": {
+              "image": "images/walkthrough-heatmap.svg",
+              "altText": "Security Heatmap visualization"
+            },
+            "completionEvents": [
+              "onCommand:vibecheck.showSecurityHeatmap"
+            ]
+          },
+          {
+            "id": "realityMode",
+            "title": "Reality Mode Testing",
+            "description": "Test if your features **actually work** with automated browser testing powered by Playwright:\n- **Mac**: ``Cmd+Shift+R``\n- **Win/Linux**: ``Ctrl+Shift+R``\n\nCatches \"fake features\" that compile but don't function.\n\n[Run Reality Mode](command:vibecheck.realityMode)",
+            "media": {
+              "image": "images/walkthrough-reality-mode.svg",
+              "altText": "Reality Mode browser testing"
+            },
+            "completionEvents": [
+              "onCommand:vibecheck.realityMode"
+            ]
+          },
+          {
+            "id": "aiExplainer",
+            "title": "AI Security Explainer",
+            "description": "Get AI-powered explanations of suspicious code. Select code and:\n- **Mac**: ``Cmd+Shift+E``\n- **Win/Linux**: ``Ctrl+Shift+E``\n\nOr right-click → \"Explain with AI\". Understand what the code does and why it's risky.\n\n[Explain Code](command:vibecheck.explainCode)",
+            "media": {
+              "image": "images/walkthrough-ai-explainer.svg",
+              "altText": "AI-powered code explanation"
+            },
+            "completionEvents": [
+              "onCommand:vibecheck.explainCode"
+            ]
+          },
+          {
+            "id": "exportReports",
+            "title": "Export Professional Reports",
+            "description": "Generate compliance-ready reports in multiple formats:\n- **HTML**: Interactive, shareable\n- **PDF**: Print-ready executive summary\n- **Markdown**: Git-friendly documentation\n- **SARIF**: CI/CD integration\n\nPress ``Cmd+Alt+E`` (Mac) or ``Ctrl+Alt+E`` (Win/Linux).\n\n[Export Report](command:vibecheck.exportReport)",
+            "media": {
+              "image": "images/walkthrough-reports.svg",
+              "altText": "Multi-format report export"
+            },
+            "completionEvents": [
+              "onCommand:vibecheck.exportReport"
+            ]
+          },
+          {
+            "id": "dashboard",
+            "title": "Analytics Dashboard",
+            "description": "View comprehensive security analytics:\n- Security score over time\n- Issue trends and hotspots\n- Coverage metrics\n- Fix recommendations\n\n[Open Dashboard](command:vibecheck.openDashboard)",
+            "media": {
+              "image": "images/banner.svg",
+              "altText": "VibeCheck Dashboard"
+            },
+            "completionEvents": [
+              "onCommand:vibecheck.openDashboard"
+            ]
+          },
+          {
+            "id": "autoFix",
+            "title": "AI-Powered Auto-Fix",
+            "description": "Let VibeCheck automatically fix issues:\n- Click the lightbulb on any issue\n- Or press ``Cmd+.`` (Mac) / ``Ctrl+.`` (Win/Linux)\n- Choose \"VibeCheck: Fix\" or \"Fix All\"\n\nAI generates secure, production-ready fixes.\n\n[Fix All Issues](command:vibecheck.fixAll)",
+            "media": {
+              "image": "images/walkthrough-welcome.svg",
+              "altText": "Auto-fix with AI"
+            },
+            "completionEvents": [
+              "onCommand:vibecheck.fixAll"
+            ]
+          }
+        ]
+      }
+    ],
+    "terminal": {
+      "profiles": [
+        {
+          "id": "vibecheck.terminal",
+          "title": "VibeCheck",
+          "icon": "shield"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "build": "webpack --mode production",
+    "compile": "webpack --mode production",
+    "watch": "webpack --mode development --watch",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "lint:fix": "eslint src --ext ts --fix",
+    "test": "node ./out/test/runTest.js",
+    "package": "vsce package --no-dependencies",
+    "publish": "vsce publish",
+    "clean": "rm -rf dist out"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
+    "@types/node": "^20.14.0",
+    "@types/vscode": "^1.85.0",
+    "@typescript-eslint/eslint-plugin": "^6.13.0",
+    "@typescript-eslint/parser": "^6.13.0",
+    "@vscode/test-electron": "^2.3.8",
+    "@vscode/vsce": "^2.22.0",
+    "css-loader": "^6.8.1",
+    "eslint": "^8.55.0",
+    "style-loader": "^3.3.3",
+    "terser-webpack-plugin": "^5.3.9",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.5.0",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "@vibecheck/core": "workspace:*",
+    "@babel/parser": "^7.28.6",
+    "@babel/traverse": "^7.28.6",
+    "@babel/types": "^7.28.6",
+    "axios": "^1.6.2",
+    "chalk": "^5.6.2",
+    "commander": "^12.1.0",
+    "debug": "^4.4.3",
+    "fast-glob": "^3.3.3",
+    "js-yaml": "^4.1.1",
+    "minimatch": "^9.0.0",
+    "ora": "^8.2.0",
+    "uuid": "^9.0.1",
+    "zod": "^3.25.76"
+  }
+}

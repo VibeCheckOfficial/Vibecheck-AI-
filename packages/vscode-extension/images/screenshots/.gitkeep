@@ -1,0 +1,11 @@
+# Screenshots Directory
+
+Place the following screenshots here for VS Code Marketplace listing:
+
+1. score-badge.png - Status bar showing "Score: 72/100" with traffic light color
+2. inline-error.png - Editor with red underline and Problems panel
+3. codelens.png - CodeLens warning above a function
+4. dashboard.png - Full dashboard webview
+
+Recommended dimensions: 1280x800 or 1920x1080
+Format: PNG with transparency where appropriate

@@ -1,0 +1,184 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f0f23"/>
+      <stop offset="100%" style="stop-color:#1a1a3e"/>
+    </linearGradient>
+    <linearGradient id="flowGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#06b6d4"/>
+      <stop offset="50%" style="stop-color:#8b5cf6"/>
+      <stop offset="100%" style="stop-color:#ec4899"/>
+    </linearGradient>
+    <linearGradient id="nodeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="100%" style="stop-color:#1d4ed8"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="500" fill="url(#bgGrad)"/>
+  
+  <!-- Grid pattern -->
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  </pattern>
+  <rect width="800" height="500" fill="url(#grid)"/>
+  
+  <!-- Title -->
+  <text x="400" y="45" text-anchor="middle" fill="white" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="600">
+    Code Flow Visualizer
+  </text>
+  <text x="400" y="70" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-family="system-ui, sans-serif" font-size="14">
+    Trace data flow through your codebase in real-time
+  </text>
+  
+  <!-- Code editor mockup -->
+  <rect x="50" y="100" width="320" height="350" rx="8" fill="#1e1e2e" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  
+  <!-- Editor header -->
+  <rect x="50" y="100" width="320" height="30" rx="8" fill="#2d2d3f"/>
+  <rect x="50" y="122" width="320" height="8" fill="#2d2d3f"/>
+  <circle cx="68" cy="115" r="5" fill="#ff5f57"/>
+  <circle cx="88" cy="115" r="5" fill="#ffbd2e"/>
+  <circle cx="108" cy="115" r="5" fill="#28ca42"/>
+  <text x="200" y="119" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-family="monospace" font-size="11">auth.service.ts</text>
+  
+  <!-- Code lines with flow highlighting -->
+  <g font-family="'SF Mono', 'Fira Code', monospace" font-size="11">
+    <!-- Line numbers -->
+    <text x="62" y="155" fill="rgba(255,255,255,0.3)">1</text>
+    <text x="62" y="175" fill="rgba(255,255,255,0.3)">2</text>
+    <text x="62" y="195" fill="rgba(255,255,255,0.3)">3</text>
+    <text x="62" y="215" fill="rgba(255,255,255,0.3)">4</text>
+    <text x="62" y="235" fill="rgba(255,255,255,0.3)">5</text>
+    <text x="62" y="255" fill="rgba(255,255,255,0.3)">6</text>
+    <text x="62" y="275" fill="rgba(255,255,255,0.3)">7</text>
+    <text x="62" y="295" fill="rgba(255,255,255,0.3)">8</text>
+    <text x="62" y="315" fill="rgba(255,255,255,0.3)">9</text>
+    <text x="58" y="335" fill="rgba(255,255,255,0.3)">10</text>
+    <text x="58" y="355" fill="rgba(255,255,255,0.3)">11</text>
+    <text x="58" y="375" fill="rgba(255,255,255,0.3)">12</text>
+    <text x="58" y="395" fill="rgba(255,255,255,0.3)">13</text>
+    <text x="58" y="415" fill="rgba(255,255,255,0.3)">14</text>
+    
+    <!-- Highlighted line background -->
+    <rect x="75" y="202" width="290" height="18" fill="rgba(6,182,212,0.15)" rx="2"/>
+    <rect x="75" y="262" width="290" height="18" fill="rgba(139,92,246,0.15)" rx="2"/>
+    <rect x="75" y="342" width="290" height="18" fill="rgba(236,72,153,0.15)" rx="2"/>
+    
+    <!-- Code -->
+    <text x="82" y="155" fill="#c678dd">async</text>
+    <text x="120" y="155" fill="#61afef">validateToken</text>
+    <text x="205" y="155" fill="white">(</text>
+    <text x="212" y="155" fill="#e5c07b">token</text>
+    <text x="245" y="155" fill="white">:</text>
+    <text x="252" y="155" fill="#98c379">string</text>
+    <text x="290" y="155" fill="white">) {</text>
+    
+    <text x="90" y="175" fill="#c678dd">const</text>
+    <text x="128" y="175" fill="#e5c07b">decoded</text>
+    <text x="177" y="175" fill="white">=</text>
+    <text x="187" y="175" fill="#61afef">jwt.verify</text>
+    <text x="255" y="175" fill="white">(</text>
+    <text x="262" y="175" fill="#e5c07b">token</text>
+    <text x="295" y="175" fill="white">);</text>
+    
+    <!-- SOURCE line - cyan highlight -->
+    <text x="90" y="215" fill="#06b6d4" filter="url(#softGlow)">const</text>
+    <text x="128" y="215" fill="#06b6d4" filter="url(#softGlow)">userId</text>
+    <text x="170" y="215" fill="white">=</text>
+    <text x="180" y="215" fill="#e5c07b">decoded</text>
+    <text x="230" y="215" fill="white">.</text>
+    <text x="237" y="215" fill="#e06c75">sub</text>
+    <text x="257" y="215" fill="white">;</text>
+    
+    <text x="90" y="235" fill="rgba(255,255,255,0.5)">// ↓ flows to line 7</text>
+    
+    <text x="90" y="255" fill="#c678dd">const</text>
+    <text x="128" y="255" fill="#e5c07b">user</text>
+    <text x="157" y="255" fill="white">=</text>
+    <text x="167" y="255" fill="#c678dd">await</text>
+    <text x="200" y="255" fill="#61afef">db.query</text>
+    <text x="260" y="255" fill="white">(</text>
+    
+    <!-- TRANSFORM line - purple highlight -->
+    <text x="98" y="275" fill="#8b5cf6" filter="url(#softGlow)">`SELECT * FROM users</text>
+    
+    <text x="98" y="295" fill="#8b5cf6" filter="url(#softGlow)">WHERE id = ${</text>
+    <text x="195" y="295" fill="#ec4899">userId</text>
+    <text x="235" y="295" fill="#8b5cf6" filter="url(#softGlow)">}`</text>
+    
+    <text x="90" y="315" fill="white">);</text>
+    
+    <text x="90" y="335" fill="rgba(255,255,255,0.5)">// ↓ flows to response</text>
+    
+    <!-- SINK line - pink highlight -->
+    <text x="90" y="355" fill="#c678dd">return</text>
+    <text x="130" y="355" fill="#ec4899" filter="url(#softGlow)">res.json</text>
+    <text x="185" y="355" fill="white">({</text>
+    <text x="200" y="355" fill="#e06c75">user</text>
+    <text x="225" y="355" fill="white">});</text>
+    
+    <text x="82" y="375" fill="white">}</text>
+  </g>
+  
+  <!-- Flow diagram -->
+  <g transform="translate(430, 130)">
+    <!-- Connection lines with gradient -->
+    <path d="M 80 50 C 80 100, 80 100, 80 140" stroke="url(#flowGrad)" stroke-width="3" fill="none" filter="url(#glow)">
+      <animate attributeName="stroke-dasharray" from="0,200" to="200,0" dur="2s" repeatCount="indefinite"/>
+    </path>
+    <path d="M 80 190 C 80 230, 80 230, 80 270" stroke="url(#flowGrad)" stroke-width="3" fill="none" filter="url(#glow)">
+      <animate attributeName="stroke-dasharray" from="0,200" to="200,0" dur="2s" repeatCount="indefinite" begin="0.5s"/>
+    </path>
+    
+    <!-- Source node -->
+    <rect x="20" y="20" width="120" height="60" rx="8" fill="#0d9488" filter="url(#glow)"/>
+    <text x="80" y="45" text-anchor="middle" fill="white" font-family="system-ui, sans-serif" font-size="12" font-weight="600">SOURCE</text>
+    <text x="80" y="62" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-family="monospace" font-size="10">userId = decoded.sub</text>
+    
+    <!-- Transform node -->
+    <rect x="20" y="140" width="120" height="60" rx="8" fill="#7c3aed" filter="url(#glow)"/>
+    <text x="80" y="165" text-anchor="middle" fill="white" font-family="system-ui, sans-serif" font-size="12" font-weight="600">TRANSFORM</text>
+    <text x="80" y="182" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-family="monospace" font-size="10">SQL query interpolation</text>
+    
+    <!-- Sink node -->
+    <rect x="20" y="270" width="120" height="60" rx="8" fill="#db2777" filter="url(#glow)"/>
+    <text x="80" y="295" text-anchor="middle" fill="white" font-family="system-ui, sans-serif" font-size="12" font-weight="600">SINK</text>
+    <text x="80" y="312" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-family="monospace" font-size="10">res.json()</text>
+    
+    <!-- Warning badge -->
+    <g transform="translate(160, 160)">
+      <rect x="0" y="0" width="160" height="70" rx="8" fill="rgba(239,68,68,0.2)" stroke="#ef4444" stroke-width="1"/>
+      <text x="80" y="22" text-anchor="middle" fill="#fca5a5" font-family="system-ui, sans-serif" font-size="11" font-weight="600">⚠️ SQL Injection Risk</text>
+      <text x="80" y="40" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-family="system-ui, sans-serif" font-size="10">User input flows directly</text>
+      <text x="80" y="55" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-family="system-ui, sans-serif" font-size="10">into SQL query</text>
+    </g>
+  </g>
+  
+  <!-- Legend -->
+  <g transform="translate(450, 420)">
+    <rect x="0" y="0" width="300" height="60" rx="6" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)"/>
+    <circle cx="25" cy="20" r="6" fill="#0d9488"/>
+    <text x="40" y="24" fill="rgba(255,255,255,0.8)" font-family="system-ui, sans-serif" font-size="11">Source (data origin)</text>
+    <circle cx="155" cy="20" r="6" fill="#7c3aed"/>
+    <text x="170" y="24" fill="rgba(255,255,255,0.8)" font-family="system-ui, sans-serif" font-size="11">Transform</text>
+    <circle cx="255" cy="20" r="6" fill="#db2777"/>
+    <text x="270" y="24" fill="rgba(255,255,255,0.8)" font-family="system-ui, sans-serif" font-size="11">Sink</text>
+    <text x="150" y="48" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-family="system-ui, sans-serif" font-size="10">Press ⌘⇧T to trace any variable</text>
+  </g>
+</svg>

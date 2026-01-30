@@ -1,0 +1,77 @@
+{
+  "name": "vibecheck-vscode",
+  "displayName": "VibeCheck Mock Detector",
+  "description": "Detect mock, fake, and placeholder data in your code",
+  "version": "1.0.0",
+  "publisher": "vibecheck",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": ["Linters", "Other"],
+  "activationEvents": [
+    "onLanguage:typescript",
+    "onLanguage:typescriptreact",
+    "onLanguage:javascript",
+    "onLanguage:javascriptreact"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "vibecheck.scanMocks",
+        "title": "VibeCheck: Scan Workspace for Mock Data"
+      },
+      {
+        "command": "vibecheck.scanCurrentFile",
+        "title": "VibeCheck: Scan Current File"
+      },
+      {
+        "command": "vibecheck.showReport",
+        "title": "VibeCheck: Show Report"
+      },
+      {
+        "command": "vibecheck.aiRemediate",
+        "title": "VibeCheck: AI Fix Suggestion"
+      }
+    ],
+    "configuration": {
+      "title": "VibeCheck Mock Detector",
+      "properties": {
+        "vibecheck.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable real-time mock detection"
+        },
+        "vibecheck.severityThreshold": {
+          "type": "string",
+          "enum": ["critical", "high", "medium", "low"],
+          "default": "low",
+          "description": "Minimum severity to report"
+        },
+        "vibecheck.anthropicApiKey": {
+          "type": "string",
+          "default": "",
+          "description": "Anthropic API key for AI remediation"
+        }
+      }
+    },
+    "keybindings": [
+      {
+        "command": "vibecheck.scanCurrentFile",
+        "key": "ctrl+shift+m",
+        "mac": "cmd+shift+m"
+      }
+    ]
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.3.0"
+  },
+  "dependencies": {
+    "@vibecheck/cli": "^1.0.0"
+  }
+}

@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VibeCheck Dashboard</title>
+    <style>
+        :root {
+            --bg-primary: #000000;
+            --bg-card: rgba(15, 23, 42, 0.4);
+            --border-color: rgba(51, 65, 85, 0.5);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --red-500: #ef4444;
+            --red-400: #f87171;
+            --red-bg: rgba(239, 68, 68, 0.1);
+            --orange-500: #f97316;
+            --orange-400: #fb923c;
+            --orange-bg: rgba(249, 115, 22, 0.1);
+            --blue-500: #3b82f6;
+            --blue-400: #60a5fa;
+            --blue-bg: rgba(59, 130, 246, 0.1);
+            --emerald-500: #10b981;
+            --emerald-400: #34d399;
+            --emerald-bg: rgba(16, 185, 129, 0.1);
+            --purple-500: #a855f7;
+            --purple-400: #c084fc;
+            --cyan-400: #22d3ee;
+            --pink-500: #ec4899;
+            --green-500: #22c55e;
+            --amber-500: #f59e0b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .bg-grid {
+            position: fixed;
+            inset: 0;
+            background-image: 
+                linear-gradient(rgba(51, 65, 85, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(51, 65, 85, 0.03) 1px, transparent 1px);
+            background-size: 32px 32px;
+            pointer-events: none;
+        }
+
+        .bg-glow-top {
+            position: fixed;
+            top: -200px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 500px;
+            background: radial-gradient(ellipse, rgba(59, 130, 246, 0.12) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .bg-glow-bottom {
+            position: fixed;
+            bottom: -150px;
+            right: -100px;
+            width: 600px;
+            height: 400px;
+            background: radial-gradient(ellipse, rgba(168, 85, 247, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .container {
+            position: relative;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 32px;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 32px;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .logo-container {
+            position: relative;
+            width: 56px;
+            height: 56px;
+        }
+
+        .logo-glow {
+            position: absolute;
+            inset: -6px;
+            background: linear-gradient(135deg, var(--pink-500), var(--purple-500), var(--cyan-400));
+            border-radius: 16px;
+            filter: blur(12px);
+            opacity: 0.4;
+        }
+
+        .logo {
+            position: relative;
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--pink-500), var(--purple-500), var(--cyan-400));
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo svg {
+            width: 32px;
+            height: 32px;
+            fill: white;
+        }
+
+        .header-text h1 {
+            font-size: 28px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--pink-500), var(--purple-400), var(--cyan-400));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header-text p {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .live-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 14px;
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--green-500);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .live-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--green-500);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+            box-shadow: 0 0 10px var(--green-500);
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.9); }
+        }
+
+        .header-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            color: var(--text-primary);
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            backdrop-filter: blur(12px);
+        }
+
+        .header-btn:hover {
+            background: rgba(30, 41, 59, 0.6);
+            border-color: rgba(100, 116, 139, 0.5);
+        }
+
+        .header-btn svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            gap: 4px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 4px;
+            margin-bottom: 24px;
+            backdrop-filter: blur(12px);
+        }
+
+        .tab {
+            flex: 1;
+            padding: 12px 20px;
+            background: transparent;
+            border: none;
+            border-radius: 10px;
+            color: var(--text-muted);
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .tab:hover {
+            color: var(--text-secondary);
+        }
+
+        .tab.active {
+            background: linear-gradient(135deg, var(--purple-500), var(--pink-500));
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Cards */
+        .glass-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            backdrop-filter: blur(40px);
+            overflow: hidden;
+        }
+
+        .card-header {
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .card-title {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .card-body {
+            padding: 24px;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 20px;
+            backdrop-filter: blur(12px);
+            transition: all 0.2s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .stat-card.critical { border-color: rgba(239, 68, 68, 0.3); }
+        .stat-card.high { border-color: rgba(249, 115, 22, 0.3); }
+        .stat-card.medium { border-color: rgba(59, 130, 246, 0.3); }
+        .stat-card.low { border-color: rgba(16, 185, 129, 0.3); }
+
+        .stat-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+
+        .stat-label {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .stat-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+
+        .stat-icon.critical { background: var(--red-bg); color: var(--red-400); }
+        .stat-icon.high { background: var(--orange-bg); color: var(--orange-400); }
+        .stat-icon.medium { background: var(--blue-bg); color: var(--blue-400); }
+        .stat-icon.low { background: var(--emerald-bg); color: var(--emerald-400); }
+
+        .stat-value {
+            font-size: 36px;
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        .stat-value.critical {
+            background: linear-gradient(135deg, var(--red-400), var(--red-500));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-value.high {
+            background: linear-gradient(135deg, var(--orange-400), var(--orange-500));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-value.medium {
+            background: linear-gradient(135deg, var(--blue-400), var(--blue-500));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-value.low {
+            background: linear-gradient(135deg, var(--emerald-400), var(--emerald-500));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        /* Score Section */
+        .score-display {
+            text-align: center;
+            padding: 32px 24px;
+        }
+
+        .score-value {
+            font-size: 80px;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--emerald-400), var(--cyan-400), var(--blue-400));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            letter-spacing: -4px;
+        }
+
+        .score-label {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-top: 8px;
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: rgba(51, 65, 85, 0.5);
+            border-radius: 100px;
+            margin: 24px 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--emerald-500), var(--cyan-400));
+            border-radius: 100px;
+            position: relative;
+            transition: width 0.5s ease;
+        }
+
+        .progress-fill::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .score-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .score-stat {
+            text-align: center;
+        }
+
+        .score-stat-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .score-stat-label {
+            font-size: 10px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 4px;
+        }
+
+        /* Threat Level */
+        .threat-section {
+            padding: 24px;
+        }
+
+        .threat-title {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .threat-levels {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .threat-level {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            transition: all 0.2s;
+        }
+
+        .threat-level.active {
+            border-color: var(--emerald-500);
+            background: var(--emerald-bg);
+        }
+
+        .threat-level.active.warning {
+            border-color: var(--amber-500);
+            background: rgba(245, 158, 11, 0.1);
+        }
+
+        .threat-level.active.critical {
+            border-color: var(--red-500);
+            background: var(--red-bg);
+        }
+
+        .threat-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--text-muted);
+        }
+
+        .threat-level.active .threat-dot {
+            background: var(--emerald-500);
+            box-shadow: 0 0 12px var(--emerald-500);
+        }
+
+        .threat-level.active.warning .threat-dot {
+            background: var(--amber-500);
+            box-shadow: 0 0 12px var(--amber-500);
+        }
+
+        .threat-level.active.critical .threat-dot {
+            background: var(--red-500);
+            box-shadow: 0 0 12px var(--red-500);
+        }
+
+        .threat-name {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .threat-level.active .threat-name {
+            color: var(--text-primary);
+        }
+
+        /* Agent Firewall */
+        .agents-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .agent-stat {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .agent-stat-value {
+            font-size: 32px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--purple-400), var(--pink-500));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .agent-stat-label {
+            font-size: 11px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 8px;
+        }
+
+        .agents-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .agent-card {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px 20px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            transition: all 0.2s;
+        }
+
+        .agent-card:hover {
+            transform: translateX(4px);
+        }
+
+        .agent-status {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .agent-status.active {
+            background: var(--green-500);
+            box-shadow: 0 0 10px var(--green-500);
+        }
+
+        .agent-status.warning {
+            background: var(--amber-500);
+            box-shadow: 0 0 10px var(--amber-500);
+        }
+
+        .agent-status.inactive {
+            background: var(--text-muted);
+        }
+
+        .agent-info {
+            flex: 1;
+        }
+
+        .agent-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .agent-type {
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        .agent-stats {
+            display: flex;
+            gap: 20px;
+        }
+
+        .agent-stat-mini {
+            text-align: right;
+        }
+
+        .agent-stat-mini-value {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .agent-stat-mini-label {
+            font-size: 9px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 24px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border-color);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding: 16px 0;
+            padding-left: 24px;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -19px;
+            top: 20px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--blue-500);
+            border: 3px solid var(--bg-primary);
+        }
+
+        .timeline-dot.success { background: var(--green-500); }
+        .timeline-dot.warning { background: var(--amber-500); }
+        .timeline-dot.error { background: var(--red-500); }
+
+        .timeline-content {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 16px;
+        }
+
+        .timeline-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .timeline-desc {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .timeline-time {
+            font-size: 10px;
+            color: var(--text-muted);
+            margin-top: 8px;
+        }
+
+        /* Reports */
+        .reports-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .report-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .report-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--purple-500);
+        }
+
+        .report-icon {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 16px;
+            background: linear-gradient(135deg, var(--purple-500), var(--pink-500));
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .report-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: white;
+        }
+
+        .report-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .report-desc {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 16px;
+            }
+            .header {
+                flex-direction: column;
+                gap: 16px;
+            }
+            .agents-grid, .reports-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-grid"></div>
+    <div class="bg-glow-top"></div>
+    <div class="bg-glow-bottom"></div>
+
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-left">
+                <div class="logo-container">
+                    <div class="logo-glow"></div>
+                    <div class="logo">
+                        <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 6c1.4 0 2.8 1.1 2.8 2.5V11c.6.3 1 .9 1 1.5v3c0 1-.9 2-2 2h-3.6c-1.1 0-2-.9-2-2v-3c0-.6.4-1.2 1-1.5V9.5C9.2 8.1 10.6 7 12 7zm0 1.2c-.8 0-1.5.5-1.5 1.3v1.5h3V9.5c0-.8-.7-1.3-1.5-1.3z"/></svg>
+                    </div>
+                </div>
+                <div class="header-text">
+                    <h1>VibeCheck</h1>
+                    <p>Enterprise Security Dashboard</p>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="live-badge">
+                    <span class="live-dot"></span>
+                    Live Monitoring
+                </div>
+                <button class="header-btn" id="btn-export">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                    Export
+                </button>
+                <button class="header-btn" id="btn-settings">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.14 12.94c.04-.31.06-.63.06-.94 0-.31-.02-.63-.06-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.04.31-.06.63-.06.94s.02.63.06.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="tabs">
+            <button class="tab active" data-tab="overview">Overview</button>
+            <button class="tab" data-tab="firewall">Agent Firewall</button>
+            <button class="tab" data-tab="timeline">Timeline</button>
+            <button class="tab" data-tab="reports">Reports</button>
+        </div>
+
+        <!-- Overview Tab -->
+        <div class="tab-content active" id="tab-overview">
+            <div class="stats-grid">
+                <div class="stat-card critical">
+                    <div class="stat-header">
+                        <span class="stat-label">Critical</span>
+                        <div class="stat-icon critical">⚠</div>
+                    </div>
+                    <div class="stat-value critical" id="critical-count">0</div>
+                </div>
+                <div class="stat-card high">
+                    <div class="stat-header">
+                        <span class="stat-label">High</span>
+                        <div class="stat-icon high">!</div>
+                    </div>
+                    <div class="stat-value high" id="high-count">0</div>
+                </div>
+                <div class="stat-card medium">
+                    <div class="stat-header">
+                        <span class="stat-label">Medium</span>
+                        <div class="stat-icon medium">◆</div>
+                    </div>
+                    <div class="stat-value medium" id="medium-count">0</div>
+                </div>
+                <div class="stat-card low">
+                    <div class="stat-header">
+                        <span class="stat-label">Low</span>
+                        <div class="stat-icon low">○</div>
+                    </div>
+                    <div class="stat-value low" id="low-count">0</div>
+                </div>
+            </div>
+
+            <div class="content-grid">
+                <div class="glass-card">
+                    <div class="score-display">
+                        <div class="score-value" id="score-value">100</div>
+                        <div class="score-label">Security Score</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progress-fill" style="width: 100%"></div>
+                        </div>
+                        <div class="score-stats">
+                            <div class="score-stat">
+                                <div class="score-stat-value" id="files-scanned">0</div>
+                                <div class="score-stat-label">Files Scanned</div>
+                            </div>
+                            <div class="score-stat">
+                                <div class="score-stat-value" id="issues-fixed">0</div>
+                                <div class="score-stat-label">Issues Fixed</div>
+                            </div>
+                            <div class="score-stat">
+                                <div class="score-stat-value" id="scan-time">0s</div>
+                                <div class="score-stat-label">Scan Time</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card">
+                    <div class="threat-section">
+                        <div class="threat-title">Threat Level</div>
+                        <div class="threat-levels">
+                            <div class="threat-level" id="threat-critical">
+                                <div class="threat-dot"></div>
+                                <span class="threat-name">Critical - Immediate action required</span>
+                            </div>
+                            <div class="threat-level" id="threat-elevated">
+                                <div class="threat-dot"></div>
+                                <span class="threat-name">Elevated - Active threats detected</span>
+                            </div>
+                            <div class="threat-level" id="threat-guarded">
+                                <div class="threat-dot"></div>
+                                <span class="threat-name">Guarded - Minor issues present</span>
+                            </div>
+                            <div class="threat-level active" id="threat-low">
+                                <div class="threat-dot"></div>
+                                <span class="threat-name">Low - All systems secure</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Agent Firewall Tab -->
+        <div class="tab-content" id="tab-firewall">
+            <div class="agents-grid">
+                <div class="agent-stat">
+                    <div class="agent-stat-value" id="active-agents">4</div>
+                    <div class="agent-stat-label">Active Agents</div>
+                </div>
+                <div class="agent-stat">
+                    <div class="agent-stat-value" id="threats-blocked">12</div>
+                    <div class="agent-stat-label">Threats Blocked</div>
+                </div>
+                <div class="agent-stat">
+                    <div class="agent-stat-value" id="total-requests">1.2K</div>
+                    <div class="agent-stat-label">Total Requests</div>
+                </div>
+            </div>
+
+            <div class="glass-card">
+                <div class="card-header">
+                    <span class="card-title">Agent Activity</span>
+                </div>
+                <div class="card-body">
+                    <div class="agents-list">
+                        <div class="agent-card">
+                            <div class="agent-status active"></div>
+                            <div class="agent-info">
+                                <div class="agent-name">Cursor AI</div>
+                                <div class="agent-type">Code Assistant</div>
+                            </div>
+                            <div class="agent-stats">
+                                <div class="agent-stat-mini">
+                                    <div class="agent-stat-mini-value">847</div>
+                                    <div class="agent-stat-mini-label">Requests</div>
+                                </div>
+                                <div class="agent-stat-mini">
+                                    <div class="agent-stat-mini-value">5</div>
+                                    <div class="agent-stat-mini-label">Blocked</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="agent-card">
+                            <div class="agent-status active"></div>
+                            <div class="agent-info">
+                                <div class="agent-name">GitHub Copilot</div>
+                                <div class="agent-type">Code Completion</div>
+                            </div>
+                            <div class="agent-stats">
+                                <div class="agent-stat-mini">
+                                    <div class="agent-stat-mini-value">312</div>
+                                    <div class="agent-stat-mini-label">Requests</div>
+                                </div>
+                                <div class="agent-stat-mini">
+                                    <div class="agent-stat-mini-value">3</div>
+                                    <div class="agent-stat-mini-label">Blocked</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="agent-card">
+                            <div class="agent-status warning"></div>
+                            <div class="agent-info">
+                                <div class="agent-name">Claude Code</div>
+                                <div class="agent-type">AI Agent</div>
+                            </div>
+                            <div class="agent-stats">
+                                <div class="agent-stat-mini">
+                                    <div class="agent-stat-mini-value">89</div>
+                                    <div class="agent-stat-mini-label">Requests</div>
+                                </div>
+                                <div class="agent-stat-mini">
+                                    <div class="agent-stat-mini-value">4</div>
+                                    <div class="agent-stat-mini-label">Blocked</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="agent-card">
+                            <div class="agent-status inactive"></div>
+                            <div class="agent-info">
+                                <div class="agent-name">Windsurf</div>
+                                <div class="agent-type">AI IDE</div>
+                            </div>
+                            <div class="agent-stats">
+                                <div class="agent-stat-mini">
+                                    <div class="agent-stat-mini-value">0</div>
+                                    <div class="agent-stat-mini-label">Requests</div>
+                                </div>
+                                <div class="agent-stat-mini">
+                                    <div class="agent-stat-mini-value">0</div>
+                                    <div class="agent-stat-mini-label">Blocked</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Timeline Tab -->
+        <div class="tab-content" id="tab-timeline">
+            <div class="glass-card">
+                <div class="card-header">
+                    <span class="card-title">Security Events</span>
+                </div>
+                <div class="card-body">
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-dot success"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-title">Full Workspace Scan Completed</div>
+                                <div class="timeline-desc">47 files scanned, 0 critical issues found</div>
+                                <div class="timeline-time">2 minutes ago</div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot warning"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-title">AI Agent Request Blocked</div>
+                                <div class="timeline-desc">Cursor attempted to modify package.json - blocked by policy</div>
+                                <div class="timeline-time">15 minutes ago</div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-title">Auto-Fix Applied</div>
+                                <div class="timeline-desc">Fixed XSS vulnerability in UserInput.tsx</div>
+                                <div class="timeline-time">1 hour ago</div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot error"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-title">Critical Issue Detected</div>
+                                <div class="timeline-desc">SQL injection vulnerability found in api/users.ts</div>
+                                <div class="timeline-time">2 hours ago</div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot success"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-title">Reality Mode Test Passed</div>
+                                <div class="timeline-desc">Auth flow verified with Playwright</div>
+                                <div class="timeline-time">3 hours ago</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reports Tab -->
+        <div class="tab-content" id="tab-reports">
+            <div class="reports-grid">
+                <div class="report-card" id="export-html">
+                    <div class="report-icon">
+                        <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+                    </div>
+                    <div class="report-title">HTML Report</div>
+                    <div class="report-desc">Interactive report with charts and details</div>
+                </div>
+                <div class="report-card" id="export-pdf">
+                    <div class="report-icon">
+                        <svg viewBox="0 0 24 24"><path d="M20 2H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-8.5 7.5c0 .83-.67 1.5-1.5 1.5H9v2H7.5V7H10c.83 0 1.5.67 1.5 1.5v1zm5 2c0 .83-.67 1.5-1.5 1.5h-2.5V7H15c.83 0 1.5.67 1.5 1.5v3zm4-3H19v1h1.5V11H19v2h-1.5V7h3v1.5zM9 9.5h1v-1H9v1zM4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm10 5.5h1v-3h-1v3z"/></svg>
+                    </div>
+                    <div class="report-title">PDF Report</div>
+                    <div class="report-desc">Printable executive summary</div>
+                </div>
+                <div class="report-card" id="export-json">
+                    <div class="report-icon">
+                        <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zM6 20V4h7v5h5v11H6z"/></svg>
+                    </div>
+                    <div class="report-title">JSON Export</div>
+                    <div class="report-desc">Raw data for CI/CD integration</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const vscode = acquireVsCodeApi();
+
+        // Tab switching
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                tab.classList.add('active');
+                document.getElementById(`tab-${tab.dataset.tab}`).classList.add('active');
+            });
+        });
+
+        // Button handlers
+        document.getElementById('btn-export').addEventListener('click', () => {
+            vscode.postMessage({ type: 'exportReport' });
+        });
+
+        document.getElementById('btn-settings').addEventListener('click', () => {
+            vscode.postMessage({ type: 'openSettings' });
+        });
+
+        document.getElementById('export-html').addEventListener('click', () => {
+            vscode.postMessage({ type: 'exportHtml' });
+        });
+
+        document.getElementById('export-pdf').addEventListener('click', () => {
+            vscode.postMessage({ type: 'exportPdf' });
+        });
+
+        document.getElementById('export-json').addEventListener('click', () => {
+            vscode.postMessage({ type: 'exportJson' });
+        });
+
+        // Update functions
+        function updateDashboard(data) {
+            if (data.score !== undefined) {
+                document.getElementById('score-value').textContent = data.score;
+                document.getElementById('progress-fill').style.width = `${data.score}%`;
+            }
+            if (data.stats) {
+                document.getElementById('critical-count').textContent = data.stats.critical || 0;
+                document.getElementById('high-count').textContent = data.stats.high || 0;
+                document.getElementById('medium-count').textContent = data.stats.medium || 0;
+                document.getElementById('low-count').textContent = data.stats.low || 0;
+                document.getElementById('files-scanned').textContent = data.stats.filesScanned || 0;
+                document.getElementById('scan-time').textContent = `${data.stats.scanTime || 0}s`;
+            }
+            if (data.threatLevel) {
+                updateThreatLevel(data.threatLevel);
+            }
+        }
+
+        function updateThreatLevel(level) {
+            document.querySelectorAll('.threat-level').forEach(el => {
+                el.classList.remove('active', 'warning', 'critical');
+            });
+            const el = document.getElementById(`threat-${level}`);
+            if (el) {
+                el.classList.add('active');
+                if (level === 'critical') el.classList.add('critical');
+                if (level === 'elevated') el.classList.add('warning');
+            }
+        }
+
+        // Message handler
+        window.addEventListener('message', event => {
+            const message = event.data;
+            if (message.type === 'updateDashboard') {
+                updateDashboard(message);
+            }
+        });
+    </script>
+</body>
+</html>

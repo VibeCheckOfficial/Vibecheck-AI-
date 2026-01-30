@@ -1,0 +1,57 @@
+{
+  "version": "1.0.0",
+  "generatedAt": "2026-01-30T09:21:54.247Z",
+  "routes": [
+    {
+      "path": "/health",
+      "method": "GET",
+      "handler": "res",
+      "file": "tests\\fixtures\\small-repo\\src\\routes\\api.ts",
+      "line": 10,
+      "parameters": [],
+      "middleware": []
+    },
+    {
+      "path": "/api/public/info",
+      "method": "GET",
+      "handler": "res",
+      "file": "tests\\fixtures\\small-repo\\src\\routes\\api.ts",
+      "line": 14,
+      "parameters": [],
+      "middleware": []
+    },
+    {
+      "path": "/api/users",
+      "method": "GET",
+      "handler": "requireAuth",
+      "file": "tests\\fixtures\\small-repo\\src\\routes\\api.ts",
+      "line": 19,
+      "parameters": [],
+      "middleware": [],
+      "auth": {
+        "required": true
+      }
+    },
+    {
+      "path": "/api/users",
+      "method": "POST",
+      "handler": "requireAuth",
+      "file": "tests\\fixtures\\small-repo\\src\\routes\\api.ts",
+      "line": 23,
+      "parameters": [],
+      "middleware": [],
+      "auth": {
+        "required": true
+      }
+    }
+  ],
+  "summary": {
+    "totalRoutes": 4,
+    "byMethod": {
+      "GET": 3,
+      "POST": 1
+    },
+    "protectedRoutes": 2,
+    "publicRoutes": 2
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "name": "@vibecheck/mock-detector",
+  "version": "1.0.0",
+  "description": "Detect and eliminate mock, fake, and placeholder data from your codebase",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "vibecheck": "./dist/cli/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "lint": "eslint src --ext .ts",
+    "test": "vitest",
+    "test:coverage": "vitest --coverage",
+    "prepare": "husky install"
+  },
+  "keywords": [
+    "mock",
+    "fake",
+    "data",
+    "security",
+    "scanner",
+    "linter",
+    "code-quality",
+    "vibecheck"
+  ],
+  "author": "VibeCheck",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vibecheck/mock-detector"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.24.0",
+    "commander": "^12.0.0",
+    "cosmiconfig": "^9.0.0",
+    "glob": "^10.3.10",
+    "hono": "^4.0.0",
+    "typescript": "^5.3.0",
+    "yaml": "^2.3.0",
+    "zod": "^3.22.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "eslint": "^8.55.0",
+    "husky": "^8.0.0",
+    "vitest": "^1.0.0"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ]
+}

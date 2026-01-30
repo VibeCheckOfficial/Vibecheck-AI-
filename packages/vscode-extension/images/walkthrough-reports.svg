@@ -1,0 +1,186 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="bgGrad5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f0f23"/>
+      <stop offset="100%" style="stop-color:#1a1a3e"/>
+    </linearGradient>
+    <linearGradient id="reportGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="100%" style="stop-color:#8b5cf6"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="500" fill="url(#bgGrad5)"/>
+  
+  <!-- Grid pattern -->
+  <pattern id="grid5" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  </pattern>
+  <rect width="800" height="500" fill="url(#grid5)"/>
+  
+  <!-- Title -->
+  <text x="400" y="45" text-anchor="middle" fill="white" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="600">
+    Export Security Reports
+  </text>
+  <text x="400" y="70" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-family="system-ui, sans-serif" font-size="14">
+    Generate compliance-ready reports in multiple formats
+  </text>
+  
+  <!-- Format cards -->
+  <g transform="translate(50, 100)">
+    <!-- HTML Report Card -->
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="160" height="180" rx="10" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.1)"/>
+      <rect x="0" y="0" width="160" height="50" rx="10" fill="rgba(249,115,22,0.2)"/>
+      <rect x="0" y="40" width="160" height="10" fill="rgba(249,115,22,0.2)"/>
+      
+      <text x="80" y="32" text-anchor="middle" fill="#fb923c" font-family="system-ui, sans-serif" font-size="18" font-weight="700">HTML</text>
+      
+      <text x="80" y="75" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-family="system-ui, sans-serif" font-size="11">Interactive Report</text>
+      
+      <g transform="translate(15, 90)">
+        <text x="0" y="12" fill="rgba(255,255,255,0.5)" font-family="system-ui, sans-serif" font-size="10">✓ Charts & graphs</text>
+        <text x="0" y="28" fill="rgba(255,255,255,0.5)" font-family="system-ui, sans-serif" font-size="10">✓ Collapsible sections</text>
+        <text x="0" y="44" fill="rgba(255,255,255,0.5)" font-family="system-ui, sans-serif" font-size="10">✓ Search & filter</text>
+        <text x="0" y="60" fill="rgba(255,255,255,0.5)" font-family="system-ui, sans-serif" font-size="10">✓ Share via link</text>
+      </g>
+    </g>
+    
+    <!-- PDF Report Card -->
+    <g transform="translate(180, 0)">
+      <rect x="0" y="0" width="160" height="180" rx="10" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.1)"/>
+      <rect x="0" y="0" width="160" height="50" rx="10" fill="rgba(239,68,68,0.2)"/>
+      <rect x="0" y="40" width="160" height="10" fill="rgba(239,68,68,0.2)"/>
+      
+      <text x="80" y="32" text-anchor="middle" fill="#f87171" font-family="system-ui, sans-serif" font-size="18" font-weight="700">PDF</text>
+      
+      <text x="80" y="75" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-family="system-ui, sans-serif" font-size="11">Executive Summary</text>
+      
+      <g transform="translate(15, 90)">
+        <text x="0" y="12" fill="rgba(255,255,255,0.5)" font-family="system-ui, sans-serif" font-size="10">✓ Print-ready format</text>
+        <text x="0" y="28" fill="rgba(255,255,255,0.5)" font-family="system-ui, sans-serif" font-size="10">✓ Executive summary</text>
+        <text x="0" y="44" fill="rgba(255,255,255,0.5)" font-family="system-ui, sans-serif" font-size="10">✓ Compliance ready</text>
+        <text x="0" y="60" fill="rgba(255,255,255,0.5)" font-family="system-ui, sans-serif" font-size="10">✓ Client deliverable</text>
+      </g>
+    </g>
+    
+    <!-- Markdown Report Card -->
+    <g transform="translate(360, 0)">
+      <rect x="0" y="0" width="160" height="180" rx="10" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.1)"/>
+      <rect x="0" y="0" width="160" height="50" rx="10" fill="rgba(34,197,94,0.2)"/>
+      <rect x="0" y="40" width="160" height="10" fill="rgba(34,197,94,0.2)"/>
+      
+      <text x="80" y="32" text-anchor="middle" fill="#4ade80" font-family="system-ui, sans-serif" font-size="18" font-weight="700">MD</text>
+      
+      <text x="80" y="75" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-family="system-ui, sans-serif" font-size="11">Documentation</text>
+      
+      <g transform="translate(15, 90)">
+        <text x="0" y="12" fill="rgba(255,255,255,0.5)" font-family="system-ui, sans-serif" font-size="10">✓ Git-friendly</text>
+        <text x="0" y="28" fill="rgba(255,255,255,0.5)" font-family="system-ui, sans-serif" font-size="10">✓ PR comments</text>
+        <text x="0" y="44" fill="rgba(255,255,255,0.5)" font-family="system-ui, sans-serif" font-size="10">✓ Wiki integration</text>
+        <text x="0" y="60" fill="rgba(255,255,255,0.5)" font-family="system-ui, sans-serif" font-size="10">✓ Issue tracking</text>
+      </g>
+    </g>
+    
+    <!-- SARIF Report Card -->
+    <g transform="translate(540, 0)">
+      <rect x="0" y="0" width="160" height="180" rx="10" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.1)"/>
+      <rect x="0" y="0" width="160" height="50" rx="10" fill="rgba(139,92,246,0.2)"/>
+      <rect x="0" y="40" width="160" height="10" fill="rgba(139,92,246,0.2)"/>
+      
+      <text x="80" y="32" text-anchor="middle" fill="#a78bfa" font-family="system-ui, sans-serif" font-size="18" font-weight="700">SARIF</text>
+      
+      <text x="80" y="75" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-family="system-ui, sans-serif" font-size="11">CI/CD Integration</text>
+      
+      <g transform="translate(15, 90)">
+        <text x="0" y="12" fill="rgba(255,255,255,0.5)" font-family="system-ui, sans-serif" font-size="10">✓ GitHub Security</text>
+        <text x="0" y="28" fill="rgba(255,255,255,0.5)" font-family="system-ui, sans-serif" font-size="10">✓ Azure DevOps</text>
+        <text x="0" y="44" fill="rgba(255,255,255,0.5)" font-family="system-ui, sans-serif" font-size="10">✓ IDE compatible</text>
+        <text x="0" y="60" fill="rgba(255,255,255,0.5)" font-family="system-ui, sans-serif" font-size="10">✓ Standard format</text>
+      </g>
+    </g>
+  </g>
+  
+  <!-- Report preview mockup -->
+  <g transform="translate(50, 300)">
+    <rect x="0" y="0" width="320" height="170" rx="8" fill="white" stroke="rgba(0,0,0,0.1)"/>
+    
+    <!-- Report header -->
+    <rect x="0" y="0" width="320" height="35" rx="8" fill="url(#reportGrad)"/>
+    <rect x="0" y="27" width="320" height="8" fill="url(#reportGrad)"/>
+    
+    <text x="15" y="23" fill="white" font-family="system-ui, sans-serif" font-size="12" font-weight="600">🛡️ VibeCheck Security Report</text>
+    <text x="305" y="23" text-anchor="end" fill="rgba(255,255,255,0.7)" font-family="system-ui, sans-serif" font-size="9">Jan 27, 2026</text>
+    
+    <!-- Report content mockup -->
+    <g transform="translate(15, 50)">
+      <rect x="0" y="0" width="60" height="60" rx="6" fill="#f3f4f6"/>
+      <text x="30" y="25" text-anchor="middle" fill="#ef4444" font-family="system-ui, sans-serif" font-size="20" font-weight="700">23</text>
+      <text x="30" y="40" text-anchor="middle" fill="#6b7280" font-family="system-ui, sans-serif" font-size="8">Issues</text>
+      <rect x="8" y="48" width="44" height="4" rx="2" fill="#fee2e2"/>
+      <rect x="8" y="48" width="15" height="4" rx="2" fill="#ef4444"/>
+      
+      <rect x="75" y="0" width="60" height="60" rx="6" fill="#f3f4f6"/>
+      <text x="105" y="25" text-anchor="middle" fill="#22c55e" font-family="system-ui, sans-serif" font-size="20" font-weight="700">89</text>
+      <text x="105" y="40" text-anchor="middle" fill="#6b7280" font-family="system-ui, sans-serif" font-size="8">Score</text>
+      <rect x="83" y="48" width="44" height="4" rx="2" fill="#dcfce7"/>
+      <rect x="83" y="48" width="40" height="4" rx="2" fill="#22c55e"/>
+      
+      <rect x="150" y="0" width="60" height="60" rx="6" fill="#f3f4f6"/>
+      <text x="180" y="25" text-anchor="middle" fill="#3b82f6" font-family="system-ui, sans-serif" font-size="20" font-weight="700">156</text>
+      <text x="180" y="40" text-anchor="middle" fill="#6b7280" font-family="system-ui, sans-serif" font-size="8">Files</text>
+      
+      <rect x="225" y="0" width="60" height="60" rx="6" fill="#f3f4f6"/>
+      <text x="255" y="25" text-anchor="middle" fill="#8b5cf6" font-family="system-ui, sans-serif" font-size="20" font-weight="700">2.1s</text>
+      <text x="255" y="40" text-anchor="middle" fill="#6b7280" font-family="system-ui, sans-serif" font-size="8">Scan Time</text>
+    </g>
+    
+    <!-- Issue breakdown bars -->
+    <g transform="translate(15, 125)">
+      <text x="0" y="10" fill="#374151" font-family="system-ui, sans-serif" font-size="9" font-weight="500">Issue Breakdown</text>
+      
+      <rect x="0" y="18" width="290" height="8" rx="4" fill="#f3f4f6"/>
+      <rect x="0" y="18" width="60" height="8" rx="4" fill="#ef4444"/>
+      <rect x="60" y="18" width="80" height="8" fill="#f97316"/>
+      <rect x="140" y="18" width="50" height="8" fill="#eab308"/>
+      <rect x="190" y="18" width="100" height="8" rx="4" fill="#22c55e"/>
+    </g>
+  </g>
+  
+  <!-- Export actions panel -->
+  <g transform="translate(400, 300)">
+    <rect x="0" y="0" width="350" height="170" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+    
+    <text x="175" y="25" text-anchor="middle" fill="white" font-family="system-ui, sans-serif" font-size="12" font-weight="600">Quick Export</text>
+    
+    <rect x="15" y="40" width="320" height="1" fill="rgba(255,255,255,0.1)"/>
+    
+    <!-- Export buttons -->
+    <g transform="translate(20, 55)">
+      <rect x="0" y="0" width="145" height="40" rx="6" fill="rgba(249,115,22,0.2)" stroke="#f97316" stroke-width="1"/>
+      <text x="72" y="25" text-anchor="middle" fill="#fb923c" font-family="system-ui, sans-serif" font-size="12" font-weight="500">📄 Export HTML</text>
+    </g>
+    
+    <g transform="translate(180, 55)">
+      <rect x="0" y="0" width="145" height="40" rx="6" fill="rgba(239,68,68,0.2)" stroke="#ef4444" stroke-width="1"/>
+      <text x="72" y="25" text-anchor="middle" fill="#f87171" font-family="system-ui, sans-serif" font-size="12" font-weight="500">📑 Export PDF</text>
+    </g>
+    
+    <g transform="translate(20, 105)">
+      <rect x="0" y="0" width="145" height="40" rx="6" fill="rgba(34,197,94,0.2)" stroke="#22c55e" stroke-width="1"/>
+      <text x="72" y="25" text-anchor="middle" fill="#4ade80" font-family="system-ui, sans-serif" font-size="12" font-weight="500">📝 Export MD</text>
+    </g>
+    
+    <g transform="translate(180, 105)">
+      <rect x="0" y="0" width="145" height="40" rx="6" fill="rgba(139,92,246,0.2)" stroke="#8b5cf6" stroke-width="1"/>
+      <text x="72" y="25" text-anchor="middle" fill="#a78bfa" font-family="system-ui, sans-serif" font-size="12" font-weight="500">🔧 Export SARIF</text>
+    </g>
+  </g>
+  
+  <!-- Keyboard shortcut hint -->
+  <g transform="translate(250, 480)">
+    <rect x="0" y="0" width="300" height="24" rx="12" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)"/>
+    <text x="150" y="16" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-family="system-ui, sans-serif" font-size="11">Press ⌘⌥E to export report</text>
+  </g>
+</svg>
