@@ -11,7 +11,7 @@
 <p align="center">
   <a href="https://www.npmjs.com/package/vibecheck-ai"><img src="https://img.shields.io/npm/v/vibecheck-ai.svg?style=flat-square&color=blue" alt="npm version" /></a>
   <a href="https://www.npmjs.com/package/vibecheck-ai"><img src="https://img.shields.io/npm/dm/vibecheck-ai.svg?style=flat-square&color=green" alt="npm downloads" /></a>
-  <a href="https://github.com/vibecheckai/vibecheck/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square" alt="license" /></a>
+  <a href="https://github.com/VibeCheckOfficial/Vibecheck-AI-/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square" alt="license" /></a>
   <a href="https://vibecheckai.dev/discord"><img src="https://img.shields.io/discord/1234567890?style=flat-square&color=5865F2&label=discord" alt="discord" /></a>
 </p>
 
@@ -19,7 +19,7 @@
   <a href="https://vibecheckai.dev">Website</a> •
   <a href="https://vibecheckai.dev/docs">Documentation</a> •
   <a href="https://vibecheckai.dev/discord">Discord</a> •
-  <a href="https://twitter.com/vibecheckai">Twitter</a>
+  <a href="https://x.com/VibeCheck_AI">Twitter</a>
 </p>
 
 ---
@@ -326,12 +326,12 @@ All CLI commands are **free forever**. Pro unlocks cloud features and team colla
 ## Community
 
 - **Discord** — [Join our community](https://vibecheckai.dev/discord)
-- **Twitter** — [@vibecheckai](https://twitter.com/vibecheckai)
-- **GitHub** — [vibecheckai/vibecheck](https://github.com/vibecheckai/vibecheck)
+- **Twitter** — [@vibecheckai](https://x.com/VibeCheck_AI)
+- **GitHub** — [VibeCheckOfficial/Vibecheck-AI-](https://github.com/VibeCheckOfficial/Vibecheck-AI-)
 
 ## Contributing
 
-We welcome contributions! See [CONTRIBUTING.md](https://github.com/vibecheckai/vibecheck/blob/main/CONTRIBUTING.md) for guidelines.
+We welcome contributions! See [CONTRIBUTING.md](https://github.com/VibeCheckOfficial/Vibecheck-AI-/blob/main/CONTRIBUTING.md) for guidelines.
 
 ## License
 

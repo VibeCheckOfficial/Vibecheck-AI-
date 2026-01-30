@@ -24,7 +24,7 @@ We recommend always running the latest version to ensure you have all security p
 Instead, report vulnerabilities through one of these channels:
 
 1. **Email**: [security@vibecheckai.dev](mailto:security@vibecheckai.dev)
-2. **GitHub Security Advisory**: [Report a vulnerability](https://github.com/vibecheckai/vibecheck/security/advisories/new)
+2. **GitHub Security Advisory**: [Report a vulnerability](https://github.com/VibeCheckOfficial/Vibecheck-AI-/security/advisories/new)
 
 ### What to Include
 

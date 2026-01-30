@@ -83,8 +83,8 @@ Example: `1.0.0-beta.1`
 
 ## Links
 
-- [Releases](https://github.com/vibecheckai/vibecheck/releases)
+- [Releases](https://github.com/VibeCheckOfficial/Vibecheck-AI-/releases)
 - [Contributing Guide](CONTRIBUTING.md)
 - [Security Policy](SECURITY.md)
 
-[Unreleased]: https://github.com/vibecheckai/vibecheck/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/VibeCheckOfficial/Vibecheck-AI-/compare/v1.0.0...HEAD

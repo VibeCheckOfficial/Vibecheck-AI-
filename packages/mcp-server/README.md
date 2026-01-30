@@ -11,7 +11,7 @@
 <p align="center">
   <a href="https://www.npmjs.com/package/@vibecheckai/mcp-server"><img src="https://img.shields.io/npm/v/@vibecheckai/mcp-server.svg?style=flat-square&color=blue" alt="npm version" /></a>
   <a href="https://www.npmjs.com/package/@vibecheckai/mcp-server"><img src="https://img.shields.io/npm/dm/@vibecheckai/mcp-server.svg?style=flat-square&color=green" alt="npm downloads" /></a>
-  <a href="https://github.com/vibecheckai/vibecheck/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square" alt="license" /></a>
+  <a href="https://github.com/VibeCheckOfficial/Vibecheck-AI-/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square" alt="license" /></a>
 </p>
 
 <p align="center">
@@ -318,7 +318,7 @@ ls -la .vibecheck/
 
 ## Contributing
 
-We welcome contributions! See [CONTRIBUTING.md](https://github.com/vibecheckai/vibecheck/blob/main/CONTRIBUTING.md).
+We welcome contributions! See [CONTRIBUTING.md](https://github.com/VibeCheckOfficial/Vibecheck-AI-/blob/main/CONTRIBUTING.md).
 
 ## License
 

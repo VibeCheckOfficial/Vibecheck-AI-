@@ -445,7 +445,7 @@ Any other context, mockups, examples.
 ### Getting Help
 
 - 💬 [Discord](https://vibecheckai.dev/discord) — Chat with the community
-- 🗣️ [Discussions](https://github.com/vibecheckai/vibecheck/discussions) — Ask questions
+- 🗣️ [Discussions](https://github.com/VibeCheckOfficial/Vibecheck-AI-/discussions) — Ask questions
 - 📧 [Email](mailto:support@vibecheckai.dev) — Reach the team directly
 
 ### Recognition

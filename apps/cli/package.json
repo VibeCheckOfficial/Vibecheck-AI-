@@ -32,14 +32,14 @@
     "copilot"
   ],
   "author": "VibeCheck Team",
-  "license": "MIT",
+  "license": "BSL-1.1",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vibecheckai/vibecheck.git"
+    "url": "git+https://github.com/VibeCheckOfficial/Vibecheck-AI-.git"
   },
   "homepage": "https://vibecheckai.dev",
   "bugs": {
-    "url": "https://github.com/vibecheckai/vibecheck/issues"
+    "url": "https://github.com/VibeCheckOfficial/Vibecheck-AI-/issues"
   },
   "scripts": {
     "build": "tsup",

@@ -491,4 +491,4 @@ All firewall decisions are logged:
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for how to contribute to VibeCheck's architecture.
 
-Questions? Open a [discussion](https://github.com/vibecheckai/vibecheck/discussions) or email [founder@vibecheckai.dev](mailto:founder@vibecheckai.dev).
+Questions? Open a [discussion](https://github.com/VibeCheckOfficial/Vibecheck-AI-/discussions) or email [founder@vibecheckai.dev](mailto:founder@vibecheckai.dev).

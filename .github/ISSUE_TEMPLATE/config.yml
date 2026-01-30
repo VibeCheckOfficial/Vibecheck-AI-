@@ -1,11 +1,11 @@
 blank_issues_enabled: false
 contact_links:
   - name: Question or Discussion
-    url: https://github.com/vibecheckai/vibecheck/discussions
+    url: https://github.com/VibeCheckOfficial/Vibecheck-AI-/discussions
     about: Ask questions and discuss ideas in GitHub Discussions
   - name: Discord Community
     url: https://vibecheckai.dev/discord
     about: Chat with the community on Discord
   - name: Security Vulnerability
-    url: https://github.com/vibecheckai/vibecheck/security/advisories/new
+    url: https://github.com/VibeCheckOfficial/Vibecheck-AI-/security/advisories/new
     about: Report security vulnerabilities privately

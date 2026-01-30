@@ -16,7 +16,7 @@
   <a href="https://www.npmjs.com/package/vibecheck-ai"><img alt="npm version" src="https://img.shields.io/npm/v/vibecheck-ai?style=flat-square&color=CB3837&logo=npm" /></a>
   <a href="https://marketplace.visualstudio.com/items?itemName=vibecheck.vibecheck"><img alt="VS Code" src="https://img.shields.io/visual-studio-marketplace/v/vibecheck.vibecheck?style=flat-square&label=VS%20Code&color=007ACC&logo=visual-studio-code" /></a>
   <a href="LICENSE.md"><img alt="License" src="https://img.shields.io/badge/license-BSL--1.1-blue?style=flat-square" /></a>
-  <a href="https://github.com/vibecheckai/vibecheck/actions"><img alt="CI" src="https://img.shields.io/github/actions/workflow/status/vibecheckai/vibecheck/vibecheck.yml?style=flat-square&logo=github" /></a>
+  <a href="https://github.com/VibeCheckOfficial/Vibecheck-AI-/actions"><img alt="CI" src="https://img.shields.io/github/actions/workflow/status/VibeCheckOfficial/Vibecheck-AI-/vibecheck.yml?style=flat-square&logo=github" /></a>
 </p>
 
 <p align="center">
@@ -124,7 +124,7 @@ Search **"VibeCheck"** in VS Code Extensions, or [install from marketplace](http
 ### GitHub Action
 
 ```yaml
-- uses: vibecheckai/vibecheck-action@v1
+- uses: VibeCheckOfficial/vibecheck-action@v1
   with:
     fail-on-error: true
 ```
@@ -306,8 +306,8 @@ We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) f
 
 ```bash
 # Clone the repo
-git clone https://github.com/vibecheckai/vibecheck.git
-cd vibecheck
+git clone https://github.com/VibeCheckOfficial/Vibecheck-AI-.git
+cd Vibecheck-AI-
 
 # Install dependencies
 pnpm install
@@ -364,5 +364,5 @@ The open-source CLI provides full local scanning capabilities. [VibeCheck Pro](h
 <p align="center">
   <a href="https://vibecheckai.dev">Website</a> •
   <a href="https://discord.gg/vibecheck">Discord</a> •
-  <a href="https://twitter.com/vibecheckai">Twitter</a>
+  <a href="https://x.com/VibeCheck_AI">Twitter</a>
 </p>
