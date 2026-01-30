@@ -1,386 +1,211 @@
-<div align="center">
+<p align="center">
+  <img src="images/banner.svg" alt="VibeCheck - Stop AI Hallucinations in Code" width="800" />
+</p>
 
-# 🛡️ Vibecheck — Agent Firewall
+<h1 align="center">VibeCheck for VS Code</h1>
 
-### Stop AI Context Drift Before It Ships
+<p align="center">
+  <strong>AI Code Verification for the Vibe Coding Era</strong>
+</p>
 
-**Proof-carry-change for Cursor, Copilot, Claude, and Windsurf**
+<p align="center">
+  <em>Your AI wrote the code. VibeCheck makes sure it actually works.</em>
+</p>
 
-[![VS Code Version](https://img.shields.io/badge/VS%20Code-1.85%2B-blue?style=flat-square&logo=visual-studio-code)](https://code.visualstudio.com/)
-[![Version](https://img.shields.io/badge/version-5.0.0-blue?style=flat-square)](https://marketplace.visualstudio.com/items?itemName=Vibecheck-AI.vibecheck-AI)
-[![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)](LICENSE)
-[![GitHub](https://img.shields.io/github/stars/vibecheck-oss/vibecheck?style=flat-square&logo=github)](https://github.com/vibecheck-oss/vibecheck)
+<p align="center">
+  <a href="https://marketplace.visualstudio.com/items?itemName=vibecheck.vibecheck"><img alt="VS Code Marketplace" src="https://img.shields.io/visual-studio-marketplace/v/vibecheck.vibecheck?style=flat-square&label=VS%20Code&color=007ACC&logo=visual-studio-code" /></a>
+  <a href="https://marketplace.visualstudio.com/items?itemName=vibecheck.vibecheck"><img alt="Installs" src="https://img.shields.io/visual-studio-marketplace/i/vibecheck.vibecheck?style=flat-square" /></a>
+  <a href="https://marketplace.visualstudio.com/items?itemName=vibecheck.vibecheck"><img alt="Rating" src="https://img.shields.io/visual-studio-marketplace/r/vibecheck.vibecheck?style=flat-square" /></a>
+  <a href="https://github.com/VibeCheckOfficial/Vibecheck-AI-"><img alt="GitHub" src="https://img.shields.io/github/stars/VibeCheckOfficial/Vibecheck-AI-?style=flat-square&logo=github" /></a>
+</p>
 
-[Marketplace](https://marketplace.visualstudio.com/items?itemName=Vibecheck-AI.vibecheck-AI) · [Documentation](https://vibecheckai.dev/docs) · [Report Issue](https://github.com/vibecheck-oss/vibecheck/issues) · [Website](https://vibecheck.ai)
-
-</div>
-
----
-
-## 🎯 The Problem
-
-AI coding tools write fast, but **context drift ships bugs**. Most failures aren't hallucinations—they're drift:
-
-- 🚫 UI calls routes that don't exist
-- 🔑 `process.env.*` appears with no schema or validation
-- 🔐 Frontend claims don't match backend enforcement
-- 📝 Types and contracts drift silently over time
-- ✅ Toast says "Saved" but nothing actually changes
-
-**Vibecheck enforces Proof-Carry-Change: if the agent can't prove it, it can't ship it.**
+<p align="center">
+  <a href="#the-problem">Problem</a> •
+  <a href="#see-it-in-action">Demo</a> •
+  <a href="#features">Features</a> •
+  <a href="#quick-start">Quick Start</a> •
+  <a href="#commands">Commands</a>
+</p>
 
 ---
 
-## ✨ What Vibecheck Does
+## The Problem
 
-### 🛡️ Agent Firewall — Three-Layer Protection
+AI coding tools write fast, but they ship bugs. Most failures aren't syntax errors—they're **hallucinations**:
 
-| Layer | Protection | Status |
-|-------|-----------|--------|
-| **MCP Interceptor** | Blocks AI tool calls at protocol level | ✅ Active |
-| **File System Hook** | Intercepts all file writes | ✅ Toggle in status bar |
-| **Git Pre-Commit** | Validates staged changes before commit | ✅ Auto-installed |
+- API endpoints that don't exist
+- Environment variables that aren't defined
+- Error handlers that swallow everything
+- Hardcoded mock data in production code
+- Auth checks that don't match the backend
 
-### 🔒 Repo Lock Mode — Enforce Truth
+**VibeCheck catches what linters miss.**
 
-When enabled, Vibecheck becomes a strict bouncer:
+---
 
-- ✅ **No Ghost Routes** — UI → API must match reality
-- ✅ **No Ghost Env Vars** — Every env must be declared + validated
-- ✅ **No Auth Drift** — Frontend claims must match backend enforcement
-- ✅ **No Contract Drift** — Request/response shapes stay consistent
-- ✅ **No Fake Success** — Success must correlate to real mutations
+## See It In Action
 
-### 📊 Real-Time Intelligence
+<p align="center">
+  <img src="images/demo.gif" alt="VibeCheck Demo" width="800" />
+</p>
 
-- **Dashboard** — Workspace health at a glance
+---
+
+## Features
+
+### 🔍 Real-Time Scanning
+
+Scan your code instantly and get feedback right in the editor.
+
+- **Inline Diagnostics** — Issues appear in the Problems panel
+- **CodeLens Warnings** — Contextual warnings above functions
+- **Hover Details** — Full issue information on hover
+- **Quick Fixes** — One-click fixes for common issues
+
+### 🛡️ Agent Firewall
+
+Real-time guardrails that intercept AI suggestions **before** they enter your codebase.
+
+| Mode | Behavior |
+|------|----------|
+| **Observe** | Log issues but allow changes |
+| **Enforce** | Block risky changes with warnings |
+| **Lockdown** | Block ALL write operations |
+
+### 🎯 Detection Engines
+
+| Engine | What It Catches |
+|--------|-----------------|
+| **Fake Feature Detection** | Code that compiles but never works |
+| **API Hallucination Scanner** | Phantom endpoints that don't exist |
+| **Mock Data Finder** | Hardcoded values pretending to be real |
+| **Error Handler Analysis** | Silent failures and empty catch blocks |
+| **Secrets Scanner** | Accidentally committed credentials |
+| **Route Scanner** | Mismatched API routes |
+| **Environment Variable Checker** | Undefined env var references |
+
+### 📊 Dashboard & Reports
+
+- **Workspace Health Dashboard** — Overall project status
 - **Findings Panel** — All issues organized by severity
 - **Truthpack Viewer** — Live index of routes, env vars, auth rules
-- **History** — Track changes and verification over time
-- **Score Badge** — Production readiness score in status bar
-- **Inline Diagnostics** — Problems appear in Problems panel
-- **CodeLens Warnings** — Contextual warnings above functions
+- **History Tracking** — Monitor changes over time
+- **Ship Score** — Production readiness at a glance
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
-### Step 1: Install the Extension
+### 1. Install the Extension
 
-Install from the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=Vibecheck-AI.vibecheck-AI) or run:
+Search **"VibeCheck"** in VS Code Extensions, or click Install above.
 
-```bash
-code --install-extension Vibecheck-AI.vibecheck-AI
-```
-
-### Step 2: Install CLI (Required)
+### 2. Install the CLI
 
 ```bash
-npm i -g @vibecheckai/cli
+npm install -g vibecheck-ai
 ```
 
-### Step 3: Initialize Your Repo
+### 3. Initialize Your Project
 
 ```bash
-vibecheck link
+vibecheck init
 ```
 
-### Step 4: Generate AI Rules (or use Kickoff)
+### 4. Scan Your Code
 
-**Option A: Quick Start (Recommended)**
-```bash
-vibecheck kickoff
+Open the Command Palette (`Ctrl+Shift+P` / `Cmd+Shift+P`) and run:
+
 ```
-This runs a 60-second guided flow: link → forge → audit → ship
-
-**Option B: Manual Setup**
-```bash
-vibecheck forge
+VibeCheck: Scan Project
 ```
-This generates AI IDE rules with your repo's context: routes, env vars, auth rules, contracts, and patterns.
 
-### Step 5: Enable Agent Firewall
-
-Click the **🛡️ Firewall** indicator in VS Code's status bar (bottom right) to toggle protection on/off.
-
-**Or use the command:**
-
-```bash
-vibecheck shield enforce
-```
+That's it! Issues appear inline, in the Problems panel, and in the VibeCheck sidebar.
 
 ---
 
-## 💡 How It Works
-
-### 1. Truthpack (Repo Reality Index)
-
-Vibecheck builds a live index of your repository:
-
-```
-routes/          → All API endpoints
-env/             → Environment variable schema
-auth/            → Authentication & authorization rules
-contracts/       → Request/response shapes
-ui-flows/        → User interaction patterns
-```
-
-### 2. Change Packet (Proof Required)
-
-Before an AI edit lands, the agent must submit:
-
-- **Intent** — What the change does
-- **Claims** — What it claims to use (routes/env/auth)
-- **Evidence** — Pointers to truthpack entries
-- **Verification Plan** — How to verify the change
-
-### 3. Firewall Verdict
-
-| Verdict | Meaning | Action |
-|---------|---------|--------|
-| ✅ **ALLOW** | Proof is real | Change proceeds |
-| ⚠️ **WARN** | Soft claims unverified | Change allowed with warning |
-| 🚫 **BLOCK** | Hard claims unproven | Change blocked |
-
----
-
-## 📖 Examples
-
-### Example 1: Ghost Endpoint
-
-**AI tries to add:**
-
-```typescript
-await fetch("/api/legal/acceptance")
-```
-
-**Result:** 🚫 **BLOCKED** — Route not found in truthpack
-
-**Fix:** Add route registration + schema + auth + test, then regenerate truthpack.
-
-### Example 2: Ghost Environment Variable
-
-**AI tries to add:**
-
-```typescript
-const secret = process.env.AUTH_SECRET
-```
-
-**Result:** 🚫 **BLOCKED** — Not declared in env schema or `.env.example`
-
-**Fix:** Declare in `.env.example` + add validation on boot.
-
-### Example 3: Auth Drift
-
-**UI says:** "Admin only"  
-**API says:** No auth check
-
-**Result:** 🚫 **BLOCKED** — Privilege boundary mismatch
-
-**Fix:** Add auth middleware to API endpoint or remove UI restriction.
-
----
-
-## 🎮 VS Code Features
-
-### Status Bar Integration
-
-- **🛡️ Firewall Toggle** — One-click enable/disable protection
-- **Score Badge** — Production readiness at a glance
-- **Quick Actions Menu** — Right-click for common commands
-
-### Commands Palette
+## Commands
 
 | Command | Shortcut | Description |
 |---------|----------|-------------|
-| **Vibecheck: Scan Workspace** | `Ctrl+Shift+G` | Full workspace scan |
-| **Vibecheck: Show Dashboard** | — | Open health dashboard |
-| **Vibecheck: Verify Selected Code** | `Ctrl+Shift+V` | Check selected AI code |
-| **Vibecheck: Verify AI Output** | `Ctrl+Shift+V` | Verify clipboard content |
-| **Vibecheck: Toggle Firewall** | — | Enable/disable firewall |
-| **Vibecheck: Ship Check** | `Ctrl+Shift+S` | Final production readiness check |
-| **Vibecheck: Show Findings** | `Ctrl+Shift+F` | View all issues |
-
-### Sidebar Panels
-
-- **Dashboard** — Real-time workspace health
-- **Verdict** — Ship/Warn/Block status
-- **Findings** — All issues organized by severity
-- **Truthpack** — Live repo reality index
-- **History** — Change tracking and verification
-
-### Quick Fixes
-
-Click the 💡 lightbulb icon on any highlighted code to see quick fixes:
-
-- Add missing route registration
-- Declare environment variables
-- Fix auth mismatches
-- Update contract definitions
+| `VibeCheck: Scan Project` | — | Full project scan |
+| `VibeCheck: Validate Current Change` | `Cmd+Shift+C` | Validate current file |
+| `VibeCheck: Toggle Firewall` | `Cmd+Shift+V` | Enable/disable firewall |
+| `VibeCheck: Build Enhanced Prompt` | `Cmd+Shift+P` | Build context-aware AI prompt |
+| `VibeCheck: Refresh Truthpack` | `Cmd+Shift+R` | Refresh project truth data |
+| `VibeCheck: Set Firewall Mode` | — | Switch observe/enforce/lockdown |
+| `VibeCheck: Show Truthpack Viewer` | — | Browse project truth data |
+| `VibeCheck: Show Dashboard` | — | Open health dashboard |
 
 ---
 
-## ⚙️ Configuration
+## Configuration
 
-### Settings
-
-Open VS Code settings (`Ctrl+,`) and search for "Vibecheck":
-
-| Setting | Default | Description |
-|---------|---------|-------------|
-| `vibecheck.enabled` | `true` | Enable vibecheck analysis |
-| `vibecheck.analyzeOnSave` | `true` | Run analysis when files are saved |
-| `vibecheck.showInlineHints` | `true` | Show inline decorations for issues |
-| `vibecheck.notifyOnCritical` | `true` | Show notifications for critical findings |
-| `vibecheck.firewallQuietMode` | `false` | Suppress firewall popup notifications |
-
-### Repo Lock Mode Policy
-
-Create `.vibecheck/policy.json`:
+Add to your VS Code `settings.json`:
 
 ```json
 {
-  "rules": {
-    "blockGhostRoutes": true,
-    "blockGhostEnvVars": true,
-    "blockAuthDrift": true,
-    "blockContractDrift": true,
-    "requireVerificationForSideEffects": true
-  },
-  "severity": {
-    "CG001": "error",
-    "CG002": "error",
-    "CG003": "warning"
-  }
+  "vibecheck.firewallEnabled": true,
+  "vibecheck.firewallMode": "enforce",
+  "vibecheck.strictMode": true,
+  "vibecheck.autoRefresh": true,
+  "vibecheck.highlightGhostRoutes": true,
+  "vibecheck.highlightGhostEnvVars": true
 }
 ```
 
 ---
 
-## 🔧 CLI Commands (v4.0)
+## Supported Languages
 
-### Setup & Analysis (FREE)
-
-| Command | Description |
-|---------|-------------|
-| `vibecheck link` | Initialize vibecheck in your repo |
-| `vibecheck kickoff` | 60-second guided onboarding with auto-detection |
-| `vibecheck forge` | Generate AI IDE rules (.cursorrules, .windsurf, MDC) |
-| `vibecheck audit` | Static analysis (routes/env/auth/contracts/security) |
-| `vibecheck doctor` | Environment health check with auto-fix |
-| `vibecheck watch` | Continuous mode - re-runs on changes |
-| `vibecheck safelist` | Manage finding suppressions with justification |
-| `vibecheck packs` | Generate artifacts (evidence, reports, graphs) |
-| `vibecheck labs` | Access experimental features |
-
-### Agent Firewall & Proof (PRO)
-
-| Command | Description |
-|---------|-------------|
-| `vibecheck shield` | Agent Firewall - intercept, validate, enforce |
-| `vibecheck shield status` | Show firewall status |
-| `vibecheck shield enforce` | Enable enforcement mode |
-| `vibecheck shield observe` | Observe-only mode |
-| `vibecheck intent` | Declare and manage AI session intent |
-| `vibecheck approve` | Authority verdicts - PROCEED/STOP/DEFER |
-| `vibecheck ship` | Final verdict: SHIP / WARN / BLOCK |
-| `vibecheck prove` | Full proof loop: audit → reality → ship |
-| `vibecheck reality` | Browser-based runtime verification |
-| `vibecheck fix` | AI-powered auto-fix (plan/apply/loop modes) |
-| `vibecheck checkpoint` | Compare baseline vs current state |
-| `vibecheck launch` | CI/CD enforcement - preflight checks |
-| `vibecheck seal` | Generate verification seal/badge |
-| `vibecheck polish` | Code polish and cleanup |
-
-## 🛠️ MCP Tools (v4.0)
-
-Vibecheck provides **17 MCP tools** for AI agents (Cursor, Claude, Windsurf):
-
-### FREE Tier (10 tools)
-- `vibecheck.link` - One-time project setup
-- `vibecheck.kickoff` - Interactive guided onboarding
-- `vibecheck.doctor` - Environment health check
-- `vibecheck.audit` - Analyze codebase for issues
-- `vibecheck.forge` - Generate IDE rules and AI context
-- `vibecheck.shield` - Agent Firewall (observe mode)
-- `vibecheck.intent` - Declare and manage AI session intent
-- `vibecheck.packs` - Generate shareable artifact packs
-- `vibecheck.safelist` - Manage finding safelist
-- `vibecheck.auth` - Authentication management
-
-### PRO Tier (7 tools)
-- `vibecheck.ship` - Verdict engine with evidence
-- `vibecheck.fix` - AI-powered auto-fix
-- `vibecheck.prove` - Full proof loop with runtime verification
-- `vibecheck.reality` - Browser-based runtime verification
-- `vibecheck.checkpoint` - Baseline comparison
-- `vibecheck.launch` - CI/CD enforcement
-- `vibecheck.seal` - Generate verification seal/badge
-- `vibecheck.approve` - Authority verdicts
-- `vibecheck.polish` - Code polish and cleanup
+| Language | Support |
+|----------|---------|
+| TypeScript | Full |
+| JavaScript | Full |
+| JSX/TSX | Full |
+| Python | Full |
+| Go | Full |
+| Rust | Full |
 
 ---
 
-## 🎯 Use Cases
+## Requirements
 
-### ✅ Perfect For
-
-- **AI-Assisted Development** — Cursor, Copilot, Claude, Windsurf users
-- **Team Collaboration** — Prevent context drift across team members
-- **CI/CD Integration** — Block bad code before it merges
-- **Legacy Codebases** — Document and enforce existing patterns
-- **Microservices** — Keep contracts and routes in sync
-
-### 🚫 Not For
-
-- Static site generators (no runtime verification)
-- Pure frontend apps without backend contracts
-- Projects without AI coding tools
+| Requirement | Version |
+|-------------|---------|
+| VS Code | 1.85.0+ |
+| Node.js | 18+ (for CLI) |
 
 ---
 
-## 🌟 Enterprise Features
+## Privacy & Security
 
-Available with [Vibecheck Enterprise](https://vibecheck.ai/pricing):
-
-- **Compliance Dashboard** — SOC 2, GDPR, HIPAA compliance tracking
-- **Security Scanner** — Advanced vulnerability detection
-- **Performance Monitor** — Real-time performance insights
-- **Change Impact Analyzer** — Understand code change effects
-- **AI Code Explainer** — Explain complex code patterns
-- **Team Collaboration** — Shared findings and evidence packs
-- **MDC Generator** — Generate Model Context Protocol files
-- **Authority System** — Multi-agent coordination and conflict resolution
-- **Conductor** — Orchestrate multiple AI agents safely
+- **Local-First** — All scanning runs locally on your machine
+- **No Code Upload** — Your code never leaves your computer
+- **No Telemetry** — Optional anonymous usage stats only
 
 ---
 
-## 📚 Resources
+## Links
 
-- 📖 [Full Documentation](https://vibecheckai.dev/docs)
-- 🎥 [Video Tutorials](https://vibecheckai.dev/tutorials)
-- 💬 [Discord Community](https://discord.gg/vibecheck)
-- 🐛 [Report Issues](https://github.com/vibecheck-oss/vibecheck/issues)
-- 💡 [Feature Requests](https://github.com/vibecheck-oss/vibecheck/issues/new)
-
----
-
-## 🤝 Contributing
-
-We welcome contributions! See our [Contributing Guide](https://github.com/vibecheck-oss/vibecheck/blob/main/CONTRIBUTING.md) for details.
+- [GitHub Repository](https://github.com/VibeCheckOfficial/Vibecheck-AI-)
+- [Documentation](https://vibecheckai.dev/docs)
+- [Report Issues](https://github.com/VibeCheckOfficial/Vibecheck-AI-/issues)
+- [Website](https://vibecheckai.dev)
 
 ---
 
-## 📄 License
+<p align="center">
+  <img src="images/logo.png" alt="VibeCheck" width="60" />
+</p>
 
-This extension is licensed under the MIT License. See [LICENSE](LICENSE) for details.
+<p align="center">
+  <strong>Stop shipping fake features.</strong><br/>
+  Built for developers who ship fast and need to ship safe.
+</p>
 
----
-
-<div align="center">
-
-**Made with ❤️ by the Vibecheck team**
-
-[Website](https://vibecheck.ai) · [Documentation](https://vibecheckai.dev/docs) · [GitHub](https://github.com/vibecheck-oss/vibecheck)
-
-</div>
+<p align="center">
+  <a href="https://vibecheckai.dev">Website</a> •
+  <a href="https://discord.gg/vibecheck">Discord</a> •
+  <a href="https://x.com/VibeCheck_AI">Twitter</a>
+</p>
